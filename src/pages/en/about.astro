@@ -1,0 +1,29 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { YEAR, LAST_UPDATED, AUTHOR_NAME, CONTACT_EMAIL, AUTHOR_ROLE, SITE_NAMES } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+import { personSchema, organizationSchema, breadcrumbSchema, profilePageSchema } from '../../lib/seo';
+import { displayDate } from '../../lib/format';
+import { BMF_FAELLE, BMF_DATUM, AK_ZEILEN } from '../../lib/pruefung';
+const lang = 'en';
+---
+<PageLayout title="Radif Partners: who publishes this Austrian pay calculator" description="Who publishes this Austrian gross-to-net calculator, why it works through the 13th and 14th salary month by month and how it is tested against the BMF tool." lang={lang} jsonLd={[personSchema(lang), organizationSchema(lang), profilePageSchema({ path: route('about', lang), lang }), breadcrumbSchema([{ name: 'Home', path: route('home', lang) }, { name: 'About', path: route('about', lang) }])]} breadcrumbs={[{ label: 'About' }]}>
+  <header class="mb-6"><h1 class="text-3xl font-bold text-navy-900 md:text-4xl">About {SITE_NAMES.en}</h1></header>
+  <div class="prose prose-slate max-w-none">
+    <div class="not-prose mb-6"><p class="text-lg font-semibold text-navy-900">{AUTHOR_NAME}</p><p class="text-navy-700">{AUTHOR_ROLE[lang]}</p></div>
+    <p>This site is published by Radif Partners, an independent publisher of pay, tax and benefit calculators. For Austria we set out to answer the question every new employee asks and few tools answer properly: how much of my salary do I actually keep, in every single month and not just on average?</p>
+    <h2>Why it calculates differently</h2>
+    <p>Most gross-to-net tools assume twelve equal salaries and two equal bonuses. Austrian law works month by month: the 13th and 14th salary are taxed at 6% only inside the annual sixth, and that sixth moves with every pay rise, every mid-year start and every bonus, before payroll checks it once more at year end. Our calculator steps through the year the way your employer’s payroll office does, and shows the commuter allowance on the same payslip.</p>
+    <h2>How we test it</h2>
+    <p>On {displayDate(BMF_DATUM, 'en-GB')} we ran {BMF_FAELLE} queries through the Finance Ministry’s official gross-to-net calculator and compared the results with ours: social insurance and wage tax agree to the cent. Unemployment benefit was checked against the {AK_ZEILEN} rows of the Chamber of Labour Lower Austria table. Every value, from the tax scale to the contribution ceiling and the childcare allowance rate, was read and dated at RIS, ÖGK, AMS or the Federal Chancellery. The <a href={route('method', lang)}>calculation method</a> has the details.</p>
+    <h2>What we are not</h2>
+    <p>We are not tax advisers or payroll accountants, not a public authority and not the Chamber of Labour. The site gives no individual advice and refers you to nobody. Binding answers come from your employer, the Austrian tax office (Finanzamt Österreich), ÖGK and AMS.</p>
+    <h2>Funding</h2>
+    <p>The calculators are free and need no account. If the site ever shows advertising, it will never sit above a calculator. What you type stays in your browser and is not stored anywhere.</p>
+    <h2>Written for people working in Austria</h2>
+    <p>Every page exists in German and English. The English pages are written for people who work in Austria while still learning German: terms such as Lohnzettel (payslip), Sonderzahlung (special payment) or Pendlerpauschale (commuter allowance) are explained, and amounts stay in euros.</p>
+    <h2>Contact</h2>
+    <p>A value is out of date, a case is missing, a result differs from your payslip? Write to <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. See also the <a href={route('editorial', lang)}>editorial policy</a> and the <a href={route('terms', lang)}>legal notice</a>.</p>
+    <p class="text-sm text-navy-600">{YEAR} values, checked on <time datetime={LAST_UPDATED}>{displayDate(LAST_UPDATED, 'en-GB')}</time>.</p>
+  </div>
+</PageLayout>

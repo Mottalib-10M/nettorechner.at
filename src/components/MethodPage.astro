@@ -1,0 +1,104 @@
+---
+/** Berechnungsmethode (Vertrauensseite, RECETTE §8.2): Formeln, Prüfungen gegen amtliche Rechner, Grenzen, Quellen. */
+import PageLayout from '../layouts/PageLayout.astro';
+import { route, type Locale } from '../i18n/routes';
+import { P } from '../lib/engine/params';
+import { formatMoney, formatPercent, displayDate } from '../lib/format';
+import { breadcrumbSchema, webPageSchema } from '../lib/seo';
+import { LAST_UPDATED, CONTACT_EMAIL, REVIEW_CYCLE_MONTHS, LANG_TAGS } from '../data/site-config';
+import { BMF_FAELLE, BMF_DATUM, BMF_BETRAEGE, BMF_MIN, BMF_MAX, AK_ZEILEN, AK_MITTEL, AK_MAX } from '../lib/pruefung';
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const de = lang === 'de';
+const $ = (n: number, d = 0) => formatMoney(n, d, lang);
+const pc = (x: number, d = 2) => formatPercent(x, d, lang);
+const dt = (iso: string) => displayDate(iso, LANG_TAGS[lang]);
+const title = de ? 'Berechnungsmethode 2026: Formeln, BMF-Abgleich, Grenzen' : 'Calculation Method 2026: Formulas, BMF Check and Limits';
+const description = de ? 'Berechnungsmethode 2026: woher jeder Wert kommt, wie Lohnsteuer, SV und Jahressechstel gerechnet werden, der Abgleich mit dem BMF-Rechner und die Grenzen.' : 'Calculation method 2026: where each value comes from, how wage tax, insurance and the annual sixth are computed, the check against the BMF tool, the limits.';
+const h1 = de ? 'Berechnungsmethode und Prüfung' : 'Calculation method and testing';
+const path = route('method', lang);
+const sources = Object.values(P.sources);
+const D = P.sv.dn;
+const ST = P.sonderzahlungen.stufen as [number, number][];
+const saetze = de ? `${pc(ST[1][1], 0)}, ${pc(ST[2][1], 0)} und ${pc(ST[3][1])}` : `${pc(ST[1][1], 0)}, ${pc(ST[2][1], 0)} and ${pc(ST[3][1])}`;
+---
+<PageLayout title={title} description={description} lang={lang} jsonLd={[webPageSchema({ name: h1, description, path, lang }), breadcrumbSchema([{ name: de ? 'Start' : 'Home', path: route('home', lang) }, { name: h1, path }])]} breadcrumbs={[{ label: h1 }]}>
+  <header class="mb-6"><h1 class="text-3xl font-bold text-navy-900 md:text-4xl">{h1}</h1></header>
+  {de ? (
+  <div class="prose prose-slate max-w-none">
+    <p>Alle Rechtswerte dieser Seite stehen in einer einzigen Parameterdatei, zuletzt am <time datetime={P.retrieved_at}>{dt(P.retrieved_at)}</time> an den amtlichen Quellen geprüft. Jeder Block nennt seine Quelle: das Rechtsinformationssystem des Bundes für das Einkommensteuergesetz und das Arbeitslosenversicherungsgesetz, die ÖGK für Beitragssätze und Grenzen, das AMS und das Bundeskanzleramt für Leistungen. Rechner und Texte lesen nur aus dieser Datei; eine korrigierte Zahl ändert sich daher überall zugleich.</p>
+    <h2>Sozialversicherung</h2>
+    <p>Dienstnehmeranteil vom laufenden Bezug: Krankenversicherung {pc(D.kv)}, Pensionsversicherung {pc(D.pv)}, Arbeitslosenversicherung {pc(D.av)} (gestaffelt: 0 % bis {$(P.sv.av_staffel[0][0])}, 1 % bis {$(P.sv.av_staffel[1][0])}, 2 % bis {$(P.sv.av_staffel[2][0])}), Arbeiterkammerumlage {pc(D.ak, 1)} und Wohnbauförderung {pc(D.wf, 1)}, in Wien seit 2026 {pc(D.wf_wien)}. Bemessen bis zur Höchstbeitragsgrundlage von {$(P.sv.hbg_monat)}; bis zur Geringfügigkeitsgrenze von {$(P.sv.geringfuegigkeit, 2)} keine Dienstnehmerbeiträge. Sonderzahlungen: Kranken-, Pensions- und Arbeitslosenversicherung (Staffel nach der Höhe der einzelnen Sonderzahlung), ohne Kammerumlage und Wohnbauförderung, bis {$(P.sv.hbg_sz_jahr)} im Jahr.</p>
+    <h2>Lohnsteuer vom laufenden Bezug</h2>
+    <p>Bemessungsgrundlage des Monats (Brutto minus SV minus steuerfreie Teile) mal zwölf, minus Werbungskostenpauschale von {$(P.tarif.werbungskostenpauschale)} und Pendlerpauschale, darauf der Tarif nach § 33 Abs. 1 EStG mit den Grenzen 2026 ({P.tarif.grenzen.slice(0, 5).map((g) => $(g)).join(', ')}). Abgezogen werden zuerst der Familienbonus Plus (begrenzt auf die Tarifsteuer des Monats), dann Verkehrsabsetzbetrag ({$(P.absetzbetraege.verkehrsabsetzbetrag)}, mit Pendlerpauschale bis {$(P.absetzbetraege.vab_erhoeht)}), Alleinverdiener- oder Alleinerzieherabsetzbetrag und Pendlereuro ({$(P.absetzbetraege.pendlereuro_je_km)} je km). Das Ergebnis geteilt durch zwölf, auf den Cent gerundet, ist die Lohnsteuer des Monats.</p>
+    <h2>Sonderzahlungen und Jahressechstel</h2>
+    <p>Jede Sonderzahlung wird im Monat ihrer Auszahlung geprüft: Das Jahressechstel ist ein Sechstel der bisher bezahlten laufenden Bezüge, auf zwölf Monate hochgerechnet. Der Teil innerhalb des Sechstels wird nach Abzug der anteiligen SV mit festen Sätzen versteuert ({$(P.sonderzahlungen.freibetrag)} frei, dann {saetze} nach § 67 Abs. 1 EStG); liegt das Sechstel nicht über {$(P.sonderzahlungen.freigrenze_sechstel)}, ist er steuerfrei. Der Teil darüber kommt im selben Monat zum laufenden Bezug und wird nach dem Tarif versteuert. Beim letzten laufenden Bezug des Jahres folgt die Kontrollrechnung nach § 77 Abs. 4a EStG: Wurde mehr als ein Sechstel der tatsächlich bezahlten laufenden Bezüge mit festen Sätzen versteuert, wird der Überhang nach dem Tarif nachversteuert, außer bei Austritt, Elternkarenz, Krankengeld und den anderen Ausnahmen des Gesetzes, die der Rechner abfragt. Wurde weniger versteuert und lag zuvor ein Teil über dem Sechstel, wandert dieser bis zum Kontrollsechstel zurück zu den festen Sätzen; das ergibt eine Gutschrift.</p>
+    <h2>Arbeitslosengeld und Notstandshilfe</h2>
+    <p>Bemessung nach § 21 AlVG: laufendes Monatsbrutto plus ein Sechstel für Sonderzahlungen, höchstens {$(P.alg.hoechstbemessung_monat)}. Davon wird ein fiktives Nettoeinkommen gebildet, Grundbetrag sind 55 % davon pro Tag. Liegt er unter dem Ausgleichszulagen-Richtsatz von {$(P.alg.ausgleichszulage_richtsatz, 2)} geteilt durch 30, kommt ein Ergänzungsbetrag bis 60 % (mit Familienzuschlag 80 %) des Nettos dazu; Familienzuschlag {$(P.alg.familienzuschlag_tag, 2)} pro Person und Tag. Das AMS veröffentlicht seinen Rechenweg für das fiktive Netto nicht im Detail; wir haben unsere Annahmen gegen die {AK_ZEILEN} Zeilen der Richtwerttabelle der Arbeiterkammer Niederösterreich geprüft: mittlere Abweichung {pc(AK_MITTEL)}, höchstens {pc(AK_MAX)}. Notstandshilfe nach § 36 AlVG: 95 % beziehungsweise 92 % des Arbeitslosengeldes, nach sechs Monaten gedeckelt, außer nach 39 oder 52 Wochen Arbeitslosengeld.</p>
+    <h2>Kinderbetreuungsgeld, Abfertigung, Überstunden, Dienstgeberkosten</h2>
+    <ul>
+      <li>KBG-Konto: {$(P.kbg.konto_tag_max, 2)} mal {P.kbg.konto_tage_ein_elternteil_min} Tage (beide Eltern {P.kbg.konto_tage_beide_min}), verteilt auf die gewählte Dauer. Einkommensabhängig: 80 % eines geschätzten Wochengeldes (Netto plus Sonderzahlungszuschlag der ÖGK), höchstens {$(P.kbg.ea_tag_max, 2)}.</li>
+      <li>Abfertigung neu: {pc(P.abfertigung.mv_satz)} von 14 Bezügen pro Jahr; die Verzinsung der Vorsorgekasse ist Ihre Annahme. Abfertigung alt: Monatsentgelte nach § 23 Angestelltengesetz, Monatsentgelt mit einem Sechstel für Sonderzahlungen. Beide mit 6 % Lohnsteuer.</li>
+      <li>Überstunden: Stundenlohn = Monatsbrutto geteilt durch (Wochenstunden × {String(P.ueberstunden.wochen_je_monat).replace('.', ',')}); steuerfrei 2026 die Zuschläge für {P.ueberstunden.frei_stunden_2026} Stunden bis {$(P.ueberstunden.frei_max_2026)}. Kollektivverträge können andere Teiler vorsehen.</li>
+      <li>Dienstgeber: SV-Dienstgeberanteil, {pc(P.sv.dg.mv)} Mitarbeitervorsorge, {pc(P.dienstgeber.db, 1)} Dienstgeberbeitrag, Zuschlag nach Bundesland, {pc(P.dienstgeber.kommunalsteuer, 0)} Kommunalsteuer.</li>
+    </ul>
+    <h2>Die Tests, die jede Veröffentlichung blockieren</h2>
+    <ul>
+      <li><strong>{BMF_FAELLE} Fälle des amtlichen BMF-Rechners</strong>, abgerufen am {dt(BMF_DATUM)}: {BMF_BETRAEGE} Bruttobeträge von {$(BMF_MIN)} bis {$(BMF_MAX)} in zwölf Profilen (ohne Kinder, Wien, ein und zwei Kinder, geteilter Familienbonus, Kind über 18, Alleinverdiener mit einem und zwei Kindern, kleines Pendlerpauschale 25 und 50 km, großes 15 und 70 km). Monatliche SV und Lohnsteuer, SV und Lohnsteuer beider Sonderzahlungen: höchstens 1 Cent Abweichung; Jahresnetto: höchstens 13 Cent.</li>
+      <li>{AK_ZEILEN} Zeilen der AK-Tabelle zum Arbeitslosengeld (Antrag März 2026), höchstens 0,5 % Abweichung je Zeile.</li>
+      <li>Grenzwerte einzeln: Geringfügigkeitsgrenze, jede Stufe der Arbeitslosenversicherung, Höchstbeitragsgrundlage, Freigrenze des Sechstels, Pendlerstufen an ihren Grenzen, Bezugsdauer des Arbeitslosengeldes, Kontrollrechnung beim Austritt.</li>
+      <li>Jeder Mini-Rechner in beiden Sprachen, ohne leeren Wert.</li>
+    </ul>
+    <h2>Was die Rechner nicht abbilden</h2>
+    <ul>
+      <li>Sachbezüge, Betriebsratsumlage, Gewerkschaftsbeitrag, Pfändung.</li>
+      <li>Die Arbeitnehmerveranlagung im Detail (Sonderausgaben, außergewöhnliche Belastungen), außer dort, wo eine Seite es ausdrücklich als Schätzung zeigt.</li>
+      <li>Lehrlinge, Beamte, freie Dienstnehmer, Pensionisten, geringfügig Beschäftigte mit mehreren Dienstverhältnissen.</li>
+      <li>Kollektivvertragliche Sonderregeln, etwa abweichende Überstundenteiler oder Zulagen.</li>
+    </ul>
+    <h2>Aktualisierung</h2>
+    <p>Vollständige Durchsicht mindestens alle {REVIEW_CYCLE_MONTHS} Monate und bei jeder neuen Verordnung: Inflationsanpassung des Tarifs (Kundmachung im Herbst), veränderliche Werte der Sozialversicherung (Dezember), Werte des AMS (Jänner). Für 2027 sind die neuen Tarifgrenzen bereits kundgemacht; der Rechner bleibt bis Jahresende bei 2026. Einen Fehler melden Sie an <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>; er wird an der Quelle geprüft, korrigiert und als Test aufgenommen. Siehe auch die <a href={route('editorial', lang)}>Redaktionsgrundsätze</a>.</p>
+    <h2>Alle Quellen</h2>
+    <ul>{sources.map((s) => <li><a href={s.url} rel="nofollow noopener" target="_blank">{s.label.de}</a></li>)}</ul>
+    <p class="text-sm text-navy-600">Zuletzt geprüft: <time datetime={LAST_UPDATED}>{dt(LAST_UPDATED)}</time>.</p>
+  </div>
+  ) : (
+  <div class="prose prose-slate max-w-none">
+    <p>Every legal value on this site sits in a single parameter file, last checked against the official sources on <time datetime={P.retrieved_at}>{dt(P.retrieved_at)}</time>. Each block names its source: the federal legal information system (RIS) for the Income Tax Act and the Unemployment Insurance Act, ÖGK for contribution rates and limits, AMS and the Federal Chancellery for benefits. Calculators and texts read only from that file, so a corrected figure changes everywhere at once.</p>
+    <h2>Social insurance</h2>
+    <p>Employee share of regular pay: health {pc(D.kv)}, pension {pc(D.pv)}, unemployment {pc(D.av)} (reduced: 0% up to {$(P.sv.av_staffel[0][0])}, 1% up to {$(P.sv.av_staffel[1][0])}, 2% up to {$(P.sv.av_staffel[2][0])}), Chamber of Labour levy {pc(D.ak, 1)} and housing subsidy {pc(D.wf, 1)}, in Vienna {pc(D.wf_wien)} since 2026. Charged up to the ceiling of {$(P.sv.hbg_monat)}; nothing for employees up to the marginal limit of {$(P.sv.geringfuegigkeit, 2)}. Special payments: health, pension and unemployment insurance (scale applied to each payment), no Chamber levy or housing subsidy, up to {$(P.sv.hbg_sz_jahr)} a year.</p>
+    <h2>Wage tax on regular pay</h2>
+    <p>The month’s taxable pay (gross minus insurance minus tax-free parts) times twelve, minus the {$(P.tarif.werbungskostenpauschale)} work-expense allowance and any commuter allowance, run through the scale of section 33(1) with the 2026 brackets ({P.tarif.grenzen.slice(0, 5).map((g) => $(g)).join(', ')}). Familienbonus Plus comes off first, limited to the month’s scale tax, then the transport credit ({$(P.absetzbetraege.verkehrsabsetzbetrag)}, up to {$(P.absetzbetraege.vab_erhoeht)} with a commuter allowance), the sole earner or single parent credit and the commuter euro ({$(P.absetzbetraege.pendlereuro_je_km)} per km). The result divided by twelve and rounded to the cent is the month’s wage tax.</p>
+    <h2>Special payments and the annual sixth</h2>
+    <p>Each special payment is checked in the month it is paid. The annual sixth is one sixth of the regular pay received so far, scaled to twelve months. The part inside the sixth is taxed at fixed rates after its share of insurance ({$(P.sonderzahlungen.freibetrag)} free, then {saetze} under section 67(1)); if the sixth does not exceed {$(P.sonderzahlungen.freigrenze_sechstel)}, it is tax-free. The part above is added to that month’s regular pay and taxed on the scale. With the last regular pay of the year comes the check under section 77(4a): if more than one sixth of the regular pay actually received was taxed at fixed rates, the excess is re-taxed on the scale, except on leaving the job, parental leave, sick pay and the other statutory exceptions, which the calculator asks about. If less was taxed at fixed rates and part of a payment had gone above the sixth earlier, that part moves back to fixed rates up to the control sixth, which produces a refund.</p>
+    <h2>Unemployment benefit and emergency assistance</h2>
+    <p>Assessment under section 21 of the Unemployment Insurance Act: regular monthly gross plus one sixth for special payments, at most {$(P.alg.hoechstbemessung_monat)}. A notional net income is derived from it; the basic amount is 55% of that per day. If it falls below the equalisation supplement reference rate of {$(P.alg.ausgleichszulage_richtsatz, 2)} divided by 30, a top-up raises it to at most 60% (80% with family supplements) of net; the family supplement is {$(P.alg.familienzuschlag_tag, 2)} per person and day. AMS does not publish its notional-net method in detail, so we tested our assumptions against the {AK_ZEILEN} rows of the Chamber of Labour Lower Austria table: average deviation {pc(AK_MITTEL)}, at most {pc(AK_MAX)}. Emergency assistance under section 36: 95% or 92% of the benefit, capped after six months except after 39 or 52 weeks of benefit.</p>
+    <h2>Childcare allowance, severance, overtime, employer cost</h2>
+    <ul>
+      <li>Childcare account: {$(P.kbg.konto_tag_max, 2)} times {P.kbg.konto_tage_ein_elternteil_min} days ({P.kbg.konto_tage_beide_min} for both parents), spread over the chosen duration. Earnings-related: 80% of an estimated maternity pay (net plus ÖGK’s special-payment surcharge), at most {$(P.kbg.ea_tag_max, 2)}.</li>
+      <li>New severance scheme: {pc(P.abfertigung.mv_satz)} of 14 payments a year; the fund’s return is your assumption. Old scheme: months’ pay under section 23 of the Salaried Employees Act, monthly pay including one sixth for special payments. Both taxed at 6%.</li>
+      <li>Overtime: hourly pay = monthly gross divided by (weekly hours × {P.ueberstunden.wochen_je_monat}); in 2026 the premiums for {P.ueberstunden.frei_stunden_2026} hours are tax-free up to {$(P.ueberstunden.frei_max_2026)}. Collective agreements may use other divisors.</li>
+      <li>Employer: employer insurance share, {pc(P.sv.dg.mv)} severance fund, {pc(P.dienstgeber.db, 1)} family-fund contribution, state surcharge, {pc(P.dienstgeber.kommunalsteuer, 0)} municipal tax.</li>
+    </ul>
+    <h2>Tests that block every release</h2>
+    <ul>
+      <li><strong>{BMF_FAELLE} cases from the official BMF calculator</strong>, retrieved on {dt(BMF_DATUM)}: {BMF_BETRAEGE} gross amounts from {$(BMF_MIN)} to {$(BMF_MAX)} across twelve profiles (no children, Vienna, one and two children, split Familienbonus, child over 18, sole earner with one and two children, small commuter allowance at 25 and 50 km, large at 15 and 70 km). Monthly insurance and wage tax, insurance and tax on both special payments: at most 1 cent apart; annual net: at most 13 cents.</li>
+      <li>{AK_ZEILEN} rows of the AK unemployment benefit table (claims made in March 2026), at most 0.5% apart per row.</li>
+      <li>Individual limits: marginal-employment limit, each unemployment insurance band, contribution ceiling, the sixth’s exemption limit, commuter bands at their edges, benefit duration, the year-end check on leaving.</li>
+      <li>Every small calculator in both languages, with no empty value.</li>
+    </ul>
+    <h2>What the calculators leave out</h2>
+    <ul>
+      <li>Benefits in kind, works council levy, union dues, garnishments.</li>
+      <li>The annual tax assessment in detail (special expenses, extraordinary burdens), except where a page explicitly shows an estimate.</li>
+      <li>Apprentices, civil servants, freelancers on a free service contract, pensioners, people with several marginal jobs.</li>
+      <li>Collective-agreement specifics such as other overtime divisors or allowances.</li>
+    </ul>
+    <h2>Updates</h2>
+    <p>A full review at least every {REVIEW_CYCLE_MONTHS} months and with every new regulation: the inflation adjustment of the tax scale (published in autumn), the social insurance values (December), AMS values (January). The 2027 brackets have already been published; the calculator stays on 2026 until year end. Report an error to <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>; it is checked at the source, corrected and added as a test. See also the <a href={route('editorial', lang)}>editorial policy</a>.</p>
+    <h2>All sources</h2>
+    <ul>{sources.map((s) => <li><a href={s.url} rel="nofollow noopener" target="_blank">{s.label.en}</a></li>)}</ul>
+    <p class="text-sm text-navy-600">Last checked: <time datetime={LAST_UPDATED}>{dt(LAST_UPDATED)}</time>.</p>
+  </div>
+  )}
+</PageLayout>

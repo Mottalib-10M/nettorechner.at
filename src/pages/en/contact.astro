@@ -1,0 +1,23 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import LegalIdentity from '../../components/LegalIdentity.astro';
+import { AUTHOR_NAME, CONTACT_EMAIL, LAST_UPDATED, REVIEW_CYCLE_MONTHS, SITE_NAMES } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+const lang = 'en';
+---
+<PageLayout title={`Contact – ${SITE_NAMES[lang]}`} description="Write to us: a value that has changed, a result that differs from your payslip, a question about the method, or a request to embed the calculator on your site." lang={lang} noindex={true} breadcrumbs={[{ label: 'Contact' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Contact</h1>
+    <p>We read every message: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</p>
+    <h2>A result differs from your payslip</h2>
+    <p>Send us the <strong>share link</strong> from the calculator (it holds your inputs) and the relevant lines of your payslip, without your name or social security number. Common causes are benefits in kind, a works council levy, a payroll recalculation or a collective agreement with its own rules. If an error is confirmed, we fix it and add the case to our tests, as set out in the <a href={route('editorial', lang)}>editorial policy</a>.</p>
+    <h2>Embedding the calculator</h2>
+    <p>Works councils, associations, media and HR teams can embed the calculator for free: the code is on the <a href={route('widget', lang)}>embed page</a>.</p>
+    <h2>What we do not do</h2>
+    <p>No individual tax or legal advice, no review of official decisions, no referrals. For your own case, ask your employer, the Austrian tax office, ÖGK, AMS or the Chamber of Labour.</p>
+    <h2>Response time</h2><p>Usually within five working days, error reports first. Every value is reviewed at least every {REVIEW_CYCLE_MONTHS} months.</p>
+    <h2>Publisher</h2>
+    <LegalIdentity lang={lang} />
+    <p>See the <a href={route('terms', lang)}>legal notice</a>. Responsible: {AUTHOR_NAME}. Last updated: {LAST_UPDATED}.</p>
+  </div>
+</PageLayout>

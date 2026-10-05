@@ -1,0 +1,28 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import LegalIdentity from '../../components/LegalIdentity.astro';
+import { AUTHOR_NAME, CONTACT_EMAIL, LAST_UPDATED, SITE_NAMES, SITE_URL } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+const lang = 'de';
+---
+<PageLayout title={`Impressum und Offenlegung – ${SITE_NAMES[lang]}`} description="Impressum des Brutto-Netto-Rechners für Österreich: Medieninhaber und Herausgeber, Offenlegung, Hosting, Haftung für Rechenergebnisse, Urheberrecht und Kontakt." lang={lang} noindex={true} breadcrumbs={[{ label: 'Impressum' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Impressum</h1>
+    <h2>Medieninhaber und Herausgeber</h2>
+    <LegalIdentity lang={lang} />
+    <p>Verantwortlich für den Inhalt: {AUTHOR_NAME}. E-Mail: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</p>
+    <h2>Offenlegung und Blattlinie</h2>
+    <p>{SITE_URL} informiert unabhängig über Lohn, Lohnsteuer, Sozialversicherung und Sozialleistungen in Österreich und stellt dafür kostenlose Rechner bereit. Die Seite gehört keiner Partei, keiner Interessenvertretung und keinem Unternehmen der Lohnverrechnung an.</p>
+    <h2>Hosting</h2>
+    <LegalIdentity mode="hosting" lang={lang} />
+    <h2>Keine Beratung, keine Gewähr</h2>
+    <p>Die Rechner liefern <strong>Schätzungen</strong> nach den amtlichen Werten 2026, die in der <a href={route('method', lang)}>Berechnungsmethode</a> mit Quelle und Datum genannt sind. Sie ersetzen weder den Lohnzettel noch einen Bescheid von Finanzamt, ÖGK oder AMS noch eine Steuer- oder Rechtsberatung. Trotz automatischer Prüfung gegen den Rechner des Finanzministeriums übernehmen wir keine Haftung für Entscheidungen, die allein auf einem Ergebnis dieser Seite beruhen. Fehler melden Sie bitte über die <a href={route('contact', lang)}>Kontaktseite</a>.</p>
+    <h2>Rechner einbinden</h2>
+    <p>Der Brutto-Netto-Rechner kann kostenlos per iframe auf anderen Seiten eingebunden werden, mit sichtbarem Link: siehe <a href={route('widget', lang)}>Rechner einbinden</a>.</p>
+    <h2>Urheberrecht</h2>
+    <p>Texte, Grafiken und Programmcode sind urheberrechtlich geschützt. Kurze Zitate mit Link auf die Ursprungsseite sind erlaubt. Gesetzestexte und amtliche Werte sind gemeinfrei und werden mit Quelle angegeben.</p>
+    <h2>Datenschutz</h2>
+    <p>Ihre Eingaben verlassen den Browser nicht. Details in der <a href={route('privacy', lang)}>Datenschutzerklärung</a> und unter <a href={route('cookies', lang)}>Cookies</a>.</p>
+    <p class="text-sm">Stand: {LAST_UPDATED}.</p>
+  </div>
+</PageLayout>

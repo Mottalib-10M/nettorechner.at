@@ -1,0 +1,28 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { AUTHOR_NAME, CONTACT_EMAIL, LAST_UPDATED, REVIEW_CYCLE_MONTHS, SITE_NAMES } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+import { BMF_FAELLE } from '../../lib/pruefung';
+const lang = 'de';
+---
+<PageLayout title={`Redaktionsgrundsätze – ${SITE_NAMES[lang]}`} description="Woher unsere Werte zu Lohnsteuer, Sozialversicherung und Leistungen kommen, wer dafür einsteht, wie oft sie geprüft werden und was nach einer Fehlermeldung passiert." lang={lang} noindex={true} breadcrumbs={[{ label: 'Redaktionsgrundsätze' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Redaktionsgrundsätze und Korrekturen</h1>
+    <p>Wer ein Jobangebot vergleicht, eine Teilzeit plant oder mit dem Arbeitslosengeld rechnen muss, trifft Entscheidungen mit Folgen. Deshalb sagen wir, woher jede Zahl kommt, wer für sie einsteht und was geschieht, wenn eine falsch ist.</p>
+    <h2>Verantwortung</h2><p>Inhalte und Rechner verantwortet {AUTHOR_NAME}. Kontakt: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</p>
+    <h2>Nur Primärquellen</h2>
+    <p>Kein Wert stammt aus einem Blog, einem Forum oder einem anderen Rechner. Wir lesen:</p>
+    <ul>
+      <li><strong>das RIS</strong>: Einkommensteuergesetz, Arbeitslosenversicherungsgesetz, Angestelltengesetz, BMSVG, Arbeitszeitgesetz in der geltenden Fassung;</li>
+      <li><strong>das Finanzministerium</strong>: Pressemitteilungen zum Tarif, Familienbonus Plus, Pendlerrechner;</li>
+      <li><strong>die ÖGK</strong>: Beitragssätze, Höchstbeitragsgrundlage, Geringfügigkeitsgrenze, Staffel der Arbeitslosenversicherung;</li>
+      <li><strong>das AMS, das Bundeskanzleramt und die Arbeiterkammer</strong>: Werte zum Arbeitslosengeld und zum Kinderbetreuungsgeld.</li>
+    </ul>
+    <h2>Prüfung vor jeder Veröffentlichung</h2><p>{BMF_FAELLE} Vergleichsfälle des BMF-Rechners, die Tabelle der Arbeiterkammer zum Arbeitslosengeld und alle Grenzwerte einzeln laufen als automatische Tests. Weicht ein Ergebnis ab, wird nichts veröffentlicht.</p>
+    <h2>Rhythmus</h2><p>Vollständige Durchsicht mindestens alle {REVIEW_CYCLE_MONTHS} Monate und bei jeder neuen Kundmachung. Das Datum auf jeder Seite kommt aus der Parameterdatei.</p>
+    <h2>Umgang mit Fehlern</h2>
+    <ol><li>Prüfung an der Primärquelle.</li><li>Korrektur der Daten oder des Codes, neuer Test.</li><li>Neues Datum auf der Seite; eine größere Korrektur wird auf der betroffenen Seite vermerkt.</li></ol>
+    <h2>Unabhängigkeit</h2><p>Wir erhalten kein Geld von Arbeitgebern, Lohnverrechnungsbüros, Banken oder Versicherungen und empfehlen keine Anbieter. Sollte sich das ändern, stünde es im Text.</p>
+    <p>Siehe auch die <a href={route('method', lang)}>Berechnungsmethode</a>. Fassung: {LAST_UPDATED}.</p>
+  </div>
+</PageLayout>

@@ -1,0 +1,23 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import LegalIdentity from '../../components/LegalIdentity.astro';
+import { AUTHOR_NAME, CONTACT_EMAIL, LAST_UPDATED, REVIEW_CYCLE_MONTHS, SITE_NAMES } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+const lang = 'de';
+---
+<PageLayout title={`Kontakt – ${SITE_NAMES[lang]}`} description="Schreiben Sie uns: ein Wert, der sich geändert hat, ein Ergebnis, das vom Lohnzettel abweicht, eine Frage zur Methode oder der Wunsch, den Rechner einzubinden." lang={lang} noindex={true} breadcrumbs={[{ label: 'Kontakt' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Kontakt</h1>
+    <p>Jede Nachricht wird gelesen: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</p>
+    <h2>Ein Ergebnis weicht von Ihrem Lohnzettel ab</h2>
+    <p>Schicken Sie uns den <strong>Link zum Teilen</strong> aus dem Rechner (er enthält Ihre Eingaben) und die betroffenen Zeilen Ihres Lohnzettels, ohne Namen und Sozialversicherungsnummer. Häufige Ursachen sind Sachbezüge, Betriebsratsumlage, eine Aufrollung durch die Lohnverrechnung oder ein Kollektivvertrag mit eigenen Regeln. Bestätigt sich ein Fehler, korrigieren wir ihn und nehmen den Fall in die Tests auf, wie in den <a href={route('editorial', lang)}>Redaktionsgrundsätzen</a> beschrieben.</p>
+    <h2>Rechner einbinden</h2>
+    <p>Betriebsräte, Vereine, Medien und Personalabteilungen können den Brutto-Netto-Rechner kostenlos einbinden: Code auf der Seite <a href={route('widget', lang)}>Rechner einbinden</a>.</p>
+    <h2>Was wir nicht tun</h2>
+    <p>Keine individuelle Steuer- oder Rechtsberatung, keine Prüfung von Bescheiden, keine Vermittlung. Für Ihren Fall sind Arbeitgeber, Finanzamt Österreich, ÖGK, AMS oder die Arbeiterkammer zuständig.</p>
+    <h2>Antwortzeit</h2><p>Meist innerhalb von fünf Werktagen, Fehlermeldungen zuerst. Jeder Wert wird mindestens alle {REVIEW_CYCLE_MONTHS} Monate überprüft.</p>
+    <h2>Herausgeber</h2>
+    <LegalIdentity lang={lang} />
+    <p>Siehe <a href={route('terms', lang)}>Impressum</a>. Verantwortlich: {AUTHOR_NAME}. Stand: {LAST_UPDATED}.</p>
+  </div>
+</PageLayout>

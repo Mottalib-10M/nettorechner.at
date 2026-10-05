@@ -1,0 +1,28 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { AUTHOR_NAME, CONTACT_EMAIL, LAST_UPDATED, REVIEW_CYCLE_MONTHS, SITE_NAMES } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+import { BMF_FAELLE } from '../../lib/pruefung';
+const lang = 'en';
+---
+<PageLayout title={`Editorial policy – ${SITE_NAMES[lang]}`} description="Where our values for Austrian wage tax, social insurance and benefits come from, who answers for them, how often they are checked, and what happens after an error report." lang={lang} noindex={true} breadcrumbs={[{ label: 'Editorial policy' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Editorial policy and corrections</h1>
+    <p>People use these numbers to compare job offers, plan part-time work or budget around unemployment benefit. So we say where each figure comes from, who stands behind it and what happens when one is wrong.</p>
+    <h2>Responsibility</h2><p>Content and calculators are the responsibility of {AUTHOR_NAME}. Contact: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</p>
+    <h2>Primary sources only</h2>
+    <p>No value is taken from a blog, a forum or another calculator. We read:</p>
+    <ul>
+      <li><strong>RIS</strong>, the federal legal database: Income Tax Act, Unemployment Insurance Act, Salaried Employees Act, BMSVG, Working Time Act as in force;</li>
+      <li><strong>the Finance Ministry</strong>: announcements on the tax scale, Familienbonus Plus, the Pendlerrechner;</li>
+      <li><strong>ÖGK</strong>: contribution rates, ceiling, marginal-employment limit, unemployment insurance scale;</li>
+      <li><strong>AMS, the Federal Chancellery and the Chamber of Labour</strong>: unemployment benefit and childcare allowance values.</li>
+    </ul>
+    <h2>Testing before every release</h2><p>{BMF_FAELLE} comparison cases from the BMF calculator, the Chamber of Labour benefit table and every limit value run as automatic tests. If a result differs, nothing is published.</p>
+    <h2>Review cycle</h2><p>A full review at least every {REVIEW_CYCLE_MONTHS} months and whenever a new regulation is published. The date on each page comes from the parameter file.</p>
+    <h2>Handling errors</h2>
+    <ol><li>Check against the primary source.</li><li>Fix the data or the code and add a test.</li><li>New date on the page; a significant correction is noted on the page concerned.</li></ol>
+    <h2>Independence</h2><p>We take no money from employers, payroll bureaus, banks or insurers and recommend no providers. If that ever changes, the text will say so.</p>
+    <p>See also the <a href={route('method', lang)}>calculation method</a>. Version: {LAST_UPDATED}.</p>
+  </div>
+</PageLayout>

@@ -1,0 +1,22 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { SITE_URL } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+import { breadcrumbSchema } from '../../lib/seo';
+const lang = 'de';
+const code = `<iframe src="${SITE_URL}/embed/brutto-netto-rechner/" title="Brutto-Netto-Rechner Österreich 2026" width="100%" height="1150" style="border:0;max-width:1100px" loading="lazy"></iframe>`;
+---
+<PageLayout title="Brutto-Netto-Rechner Österreich auf Ihrer Seite einbinden" description="Binden Sie den Brutto-Netto-Rechner Österreich 2026 kostenlos per iframe ein: Code kopieren, keine Anmeldung, keine Tracker, Rechnung vollständig im Browser der Besucher." lang={lang} noindex={true} jsonLd={[breadcrumbSchema([{ name: 'Start', path: route('home', lang) }, { name: 'Widget', path: route('widget', lang) }])]} breadcrumbs={[{ label: 'Widget' }]} showAuthor={false}>
+  <header class="mb-6">
+    <h1 class="text-3xl font-bold text-navy-900 md:text-4xl">Den Rechner einbinden</h1>
+    <p class="mt-3 text-lg text-navy-700">Ein Code zum Kopieren, ohne Anmeldung und ohne Kosten. Betriebsräte, Vereine und Redaktionen bauen ihn in einer Minute ein.</p>
+  </header>
+  <div class="prose prose-slate max-w-none">
+    <pre class="overflow-x-auto rounded-lg bg-navy-900 p-4 text-sm text-white"><code>{code}</code></pre>
+    <p>Bedingungen: Der Link unter dem Rechner bleibt sichtbar, der Rechner wird nicht verändert, er wird ohne Gewähr bereitgestellt. Werte und Tests werden hier aktualisiert, Ihre Einbindung profitiert automatisch. Für die englische Fassung ersetzen Sie die Adresse durch <code>{`${SITE_URL}/embed/gross-net-calculator/`}</code>.</p>
+    <p>Von Ihren Besuchern erreicht uns nichts: Die Rechnung läuft in deren Browser, das iframe setzt keine Cookies. Fragen über die <a href={route('contact', lang)}>Kontaktseite</a>.</p>
+  </div>
+  <div class="mt-8 overflow-hidden rounded-xl border border-navy-200">
+    <iframe src="/embed/brutto-netto-rechner/" title="Brutto-Netto-Rechner Österreich 2026" width="100%" height="1150" style="border:0" loading="lazy"></iframe>
+  </div>
+</PageLayout>

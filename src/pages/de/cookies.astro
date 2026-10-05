@@ -1,0 +1,15 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { CONTACT_EMAIL, LAST_UPDATED, SITE_NAMES } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+const lang = 'de';
+---
+<PageLayout title={`Cookies – ${SITE_NAMES[lang]}`} description="Welche Cookies der Brutto-Netto-Rechner setzt: derzeit keine. Was sich ändern würde, wenn eine Reichweitenmessung dazukommt, und wie Ihre Einwilligung dann eingeholt wird." lang={lang} noindex={true} breadcrumbs={[{ label: 'Cookies' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Cookies</h1>
+    <p>Ergänzung zur <a href={route('privacy', lang)}>Datenschutzerklärung</a>.</p>
+    <h2>Derzeit keine Cookies</h2><p>Die Rechner laufen vollständig in Ihrem Browser und setzen keine Cookies. Es gibt keine Reichweitenmessung, keine Werbung und keine Einbindung sozialer Netzwerke.</p>
+    <h2>Falls sich das ändert</h2><p>Eine Messung oder Werbung würde erst nach Ihrer Einwilligung geladen, über ein Banner, das auch das Ablehnen und den späteren Widerruf erlaubt; diese Seite würde dann jedes Cookie mit seiner Dauer aufführen.</p>
+    <p>Fragen: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. Stand: {LAST_UPDATED}.</p>
+  </div>
+</PageLayout>

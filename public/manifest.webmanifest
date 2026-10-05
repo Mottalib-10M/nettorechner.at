@@ -1,0 +1,21 @@
+{
+ "name": "Brutto-Netto Österreich",
+ "short_name": "Brutto-Netto Österreich",
+ "description": "Brutto-Netto-Rechner für Österreich 2026: Lohnsteuer, Sozialversicherung, 13. und 14. Gehalt mit Jahressechstel, Pendlerpauschale und Familienbonus Plus, geprüft gegen den BMF-Rechner.",
+ "start_url": "/de/",
+ "display": "standalone",
+ "background_color": "#ffffff",
+ "theme_color": "#C8102E",
+ "icons": [
+  {
+   "src": "/icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png"
+  },
+  {
+   "src": "/icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png"
+  }
+ ]
+}

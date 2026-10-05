@@ -1,0 +1,774 @@
+{
+  "_lisezmoi": "Alle Rechtswerte 2026 der Seite. Jeder Block nennt seine Quelle (Schlüssel in `sources`), jeder Wert wurde am retrieved_at auf der amtlichen Quelle gelesen. Nie in Seiten oder Code abschreiben: immer von hier lesen.",
+  "year": 2026,
+  "retrieved_at": "2026-10-05",
+  "valid_from": "2026-01-01",
+  "valid_to": "2026-12-31",
+  "tarif": {
+    "_quelle": "estg33",
+    "grenzen": [
+      13539,
+      21992,
+      36458,
+      70365,
+      104859,
+      1000000
+    ],
+    "saetze": [
+      0,
+      0.2,
+      0.3,
+      0.4,
+      0.48,
+      0.5,
+      0.55
+    ],
+    "indexierung_2026": 0.0173,
+    "werbungskostenpauschale": 132,
+    "grenzen_2027": [
+      13846,
+      22491,
+      37285,
+      71960,
+      107236
+    ],
+    "_grenzen_2027": "Für 2027 kundgemacht (BGBl. II Nr. 260/2026, Anmerkungen zu § 33 Abs. 1 EStG im RIS, gelesen 2026-10-05). Nur für Hinweise im Text, gerechnet wird 2026."
+  },
+  "absetzbetraege": {
+    "_quelle": "estg33",
+    "verkehrsabsetzbetrag": 496,
+    "vab_erhoeht": 853,
+    "vab_erhoeht_bis": 15069,
+    "vab_erhoeht_einschleif_bis": 16056,
+    "vab_zuschlag": 804,
+    "vab_zuschlag_bis": 19761,
+    "vab_zuschlag_einschleif_bis": 30259,
+    "pendlereuro_je_km": 6,
+    "pendlereuro_je_km_2025": 2,
+    "avab_1_kind": 612,
+    "avab_2_kinder": 828,
+    "avab_je_weiteres_kind": 273,
+    "avab_partner_einkuenfte_max": 7411,
+    "unterhaltsabsetzbetrag": [
+      38,
+      56,
+      75
+    ],
+    "familienbonus_monat_u18": 166.68,
+    "familienbonus_monat_ue18": 58.34,
+    "kindermehrbetrag": 700,
+    "sv_rueckerstattung_max": 496,
+    "sv_rueckerstattung_quote": 0.55,
+    "sv_rueckerstattung_pendler_max": 750,
+    "kinderabsetzbetrag_monat": 70.9,
+    "_kinderabsetzbetrag": "§ 33 Abs. 3 Z 2 EStG (Valorisierung) gilt laut § 124b EStG für 2026 bis 2028 nicht: Betrag 2025 (70,90 €) bleibt.",
+    "familienbonus_altersgrenze": 18,
+    "familienbonus_rueckziehung_jahre": 5,
+    "kindermehrbetrag_mindest_tage": 30,
+    "kindermehrbetrag_einkommensgrenzen": [
+      17038,
+      20538,
+      23356,
+      25689
+    ],
+    "_kindermehrbetrag_einkommensgrenzen": "BMF (bmfFamilienbonus, Stand 1.1.2026): Einkommen 2026, bis zu dem bei 1/2/3/4 Kindern die Tarifsteuer unter 700/1.400/2.100/2.800 Euro bleibt."
+  },
+  "sonderzahlungen": {
+    "_quelle": "estg67",
+    "freibetrag": 620,
+    "freigrenze_sechstel": 2615,
+    "stufen": [
+      [
+        620,
+        0
+      ],
+      [
+        24380,
+        0.06
+      ],
+      [
+        25000,
+        0.27
+      ],
+      [
+        33333,
+        0.3575
+      ]
+    ],
+    "obergrenze_feste_saetze": 83333,
+    "freigrenze_sechstel_2027": 2675,
+    "_freigrenze_2027": "§ 67 Abs. 1 EStG, Anm. 1 im RIS: für 2027 2.675 € (BGBl. II Nr. 260/2026)."
+  },
+  "ueberstunden": {
+    "_quelle": "estg68",
+    "frei_stunden_2026": 15,
+    "frei_max_2026": 170,
+    "frei_stunden_ab_2027": 10,
+    "frei_max_ab_2027": 120,
+    "frei_stunden_2024_2025": 18,
+    "frei_max_2024_2025": 200,
+    "zuschlag_gesetzlich": 0.5,
+    "sfn_frei_max": 400,
+    "wochen_je_monat": 4.33,
+    "ueberstunde_steuerlich_ab_wochenstunden": 40,
+    "azg_wahlrecht_ab_tagesstunden": 10,
+    "azg_wahlrecht_ab_wochenstunden": 50,
+    "_azg": "§ 68 Abs. 4 EStG: steuerlich Überstunde erst über 40 Wochenstunden. § 10 Abs. 4 AZG: Wahlrecht Geld/Zeitausgleich über 10 Std./Tag oder 50 Std./Woche (Quelle azg10)."
+  },
+  "mitarbeiterpraemie_2026_max": 500,
+  "pendlerpauschale": {
+    "_quelle": "estg16",
+    "klein": [
+      [
+        20,
+        40,
+        696
+      ],
+      [
+        40,
+        60,
+        1356
+      ],
+      [
+        60,
+        9999,
+        2016
+      ]
+    ],
+    "gross": [
+      [
+        2,
+        20,
+        372
+      ],
+      [
+        20,
+        40,
+        1476
+      ],
+      [
+        40,
+        60,
+        2568
+      ],
+      [
+        60,
+        9999,
+        3672
+      ]
+    ],
+    "fahrten_voll": 11,
+    "fahrten_zwei_drittel": 8,
+    "fahrten_ein_drittel": 4
+  },
+  "sv": {
+    "_quelle": "oegkWerte",
+    "geringfuegigkeit": 551.1,
+    "hbg_monat": 6930,
+    "hbg_sz_jahr": 13860,
+    "dn": {
+      "kv": 0.0387,
+      "pv": 0.1025,
+      "av": 0.0295,
+      "ak": 0.005,
+      "wf": 0.005,
+      "wf_wien": 0.0075
+    },
+    "av_staffel": [
+      [
+        2225,
+        0
+      ],
+      [
+        2427,
+        0.01
+      ],
+      [
+        2630,
+        0.02
+      ]
+    ],
+    "dg": {
+      "kv": 0.0378,
+      "pv": 0.1255,
+      "av": 0.0295,
+      "uv": 0.011,
+      "ie": 0.001,
+      "wf": 0.005,
+      "wf_wien": 0.0075,
+      "mv": 0.0153
+    },
+    "_sz": "Von Sonderzahlungen keine AK-Umlage und kein Wohnbauförderungsbeitrag (WKO, Beitragswesen 2026).",
+    "dg_abgabe_grenze": 826.65,
+    "selbstversicherung_geringfuegig_monat": 83.49,
+    "_selbstversicherung": "ÖGK (svSelbstversicherung) und USP (uspGeringfuegig): Selbstversicherung in Kranken- und Pensionsversicherung bei geringfügiger Beschäftigung 2026 monatlich 83,49 €, nicht aliquotierbar; nicht möglich u. a. bei Bezug von Arbeitslosengeld, Notstandshilfe, Kinderbetreuungsgeld oder Eigenpension.",
+    "dn_mehrfach_geringfuegig": 0.1412,
+    "dg_ueber_dg_abgabe_grenze": 0.205,
+    "_geringfuegig_saetze": "WKO Beitragswesen 2026 (wkoBeitraege): DN 14,12 % wenn die Summe mehrerer geringfügiger Entgelte 551,10 € übersteigt; DG 1,10 % (UV) unter 826,65 €, 20,50 % darüber.",
+    "hbg_tag": 231,
+    "hbg_freie_dn_monat": 8085,
+    "aufwertungszahl": 1.073,
+    "pv_erstattung_quote": 0.45,
+    "pv_erstattung_hbg_tage": 35,
+    "zusatzbeitrag_angehoerige": 0.034,
+    "schlechtwetter_dn": 0.007,
+    "_hbg": "Tägliche HBG 231 €, freie DN ohne SZ 8.085 €, Aufwertungszahl 1,073 (oegkWerte, oegkHbg). PV-Erstattung 45 % bei Überschreitung der Summe der monatlichen HBG (35-fache Tages-HBG), § 70 ASVG (asvg70). Zusatzbeitrag Angehörige 3,4 %, Schlechtwetter DN 0,7 % (wkoBeitraege)."
+  },
+  "dienstgeber": {
+    "_quelle": "wkoDb",
+    "db": 0.037,
+    "kommunalsteuer": 0.03,
+    "dz": {
+      "burgenland": 0.004,
+      "kaernten": 0.0037,
+      "niederoesterreich": 0.0033,
+      "oberoesterreich": 0.0031,
+      "salzburg": 0.0035,
+      "steiermark": 0.0034,
+      "tirol": 0.0039,
+      "vorarlberg": 0.0033,
+      "wien": 0.0036
+    },
+    "db_freibetrag_grenze_monat": 1460,
+    "db_freibetrag_monat": 1095,
+    "_db_freibetrag": "WKO Beitragswesen 2026 (wkoBeitraege): DB-Beitragsgrundlage verringert sich um 1.095 €, wenn die Summe der Arbeitslöhne im Monat 1.460 € nicht übersteigt; DB entfällt für Dienstnehmer ab dem 60. Lebensjahr. Im Motor nicht modelliert."
+  },
+  "alg": {
+    "_quelle": "amsWerte",
+    "grundbetrag_quote": 0.55,
+    "ergaenzung_quote_ohne_fz": 0.6,
+    "ergaenzung_quote_mit_fz": 0.8,
+    "ausgleichszulage_richtsatz": 1308.39,
+    "familienzuschlag_tag": 0.97,
+    "hoechstbemessung_monat": 6825,
+    "existenzminimum_monat": 1526,
+    "nh_quote_hoch": 0.95,
+    "nh_quote": 0.92,
+    "dauer_wochen": [
+      [
+        0,
+        0,
+        20
+      ],
+      [
+        156,
+        0,
+        30
+      ],
+      [
+        312,
+        40,
+        39
+      ],
+      [
+        468,
+        50,
+        52
+      ]
+    ],
+    "anwartschaft_wochen": 52,
+    "anwartschaft_rahmenfrist_monate": 24,
+    "_quelle_zusatz": "Zusatzwerte: § 14 und § 18 AlVG (alvg14, alvg18), § 36 AlVG (alvg36), AK NÖ Arbeitslosenversicherung 2026 (akAlv), gelesen 2026-10-05",
+    "anwartschaft_u25_alter": 25,
+    "anwartschaft_u25_wochen": 26,
+    "anwartschaft_u25_rahmenfrist_monate": 12,
+    "anwartschaft_weitere_wochen": 28,
+    "anwartschaft_weitere_rahmenfrist_monate": 12,
+    "anwartschaft_kbg_praesenz_mind_wochen": 14,
+    "dauer_reha_wochen": 78,
+    "stiftung_verlaengerung_wochen": 156,
+    "stiftung_verlaengerung_max_wochen": 209,
+    "sperre_selbstkuendigung_wochen": 4,
+    "anspruchsverlust_wochen": 6,
+    "anspruchsverlust_wiederholt_wochen": 8,
+    "fortbezug_frist_jahre": 5,
+    "antrag_vorab_wochen": 3,
+    "wiedermeldung_tage": 62,
+    "verfuegbarkeit_stunden": 20,
+    "verfuegbarkeit_stunden_betreuung": 16,
+    "nh_dauer_wochen": 52,
+    "nh_antrag_frist_jahre": 5,
+    "nh_kuerzung_nach_monaten": 6,
+    "nh_laengste_dauer_ab_alter": 45,
+    "zv_vorher_wochen": 26,
+    "zv_nach_bezug_tage": 365,
+    "zv_unterbrechung_max_tage": 62,
+    "zv_einmalig_wochen": 26,
+    "zv_unbegrenzt_ab_alter": 50,
+    "zv_krankengeld_wochen": 52,
+    "zv_krankengeld_zuverdienst_wochen": 26,
+    "zv_massnahme_monate": 4,
+    "zv_massnahme_wochenstunden": 25,
+    "zv_selbststaendig_jahr": 6613.2,
+    "voruebergehend_anrechnung_quote": 0.9,
+    "voruebergehend_wochen": 4,
+    "pfusch_rueckzahlung_min_wochen": 4,
+    "dauer_rahmen_jahre": [
+      0,
+      0,
+      10,
+      15
+    ],
+    "rahmenfrist_verlaengerung_max_jahre": 5,
+    "ausbildung_zulaessig_monate": 3,
+    "landwirtschaft_einheitswert_max": 18370,
+    "selbststaendig_umsatz_quote": 0.111,
+    "landwirtschaft_einheitswert_quote": 0.03
+  },
+  "kbg": {
+    "_quelle": "kbgKonto",
+    "konto_tag_max": 41.14,
+    "konto_tag_min": 17.65,
+    "konto_tage_ein_elternteil_min": 365,
+    "konto_tage_ein_elternteil_max": 851,
+    "konto_tage_beide_min": 456,
+    "konto_tage_beide_max": 1063,
+    "partner_anteil": 0.2,
+    "ea_quote": 0.8,
+    "ea_tag_max": 80.12,
+    "ea_tage_ein": 365,
+    "ea_tage_beide": 426,
+    "ea_partner_tage": 61,
+    "zuverdienst_konto": 18000,
+    "zuverdienst_ea": 8600,
+    "partnerschaftsbonus_je": 500,
+    "mehrling_zuschlag": 0.5,
+    "wochengeld_sz_zuschlag": {
+      "ein_monatsbezug": 0.14,
+      "zwei_monatsbezuege": 0.17,
+      "mehr": 0.21
+    },
+    "_quelle_zusatz": "Zusatzwerte: Broschüre Kinderbetreuungsgeld 2026 (kbgBroschuere) und BKA-Seite einkommensabhängiges KBG (kbgEa), gelesen 2026-10-05",
+    "ea_erwerb_tage": 182,
+    "ea_unterbrechung_tage": 14,
+    "ea_steuerbescheid_quote": 0.62,
+    "ea_steuerbescheid_sockel": 4000,
+    "zuverdienst_individuell_quote": 0.6,
+    "zuverdienst_aufschlag": 0.3,
+    "zuverdienst_aufschlag_alv": 0.15,
+    "zuverdienst_lst_bmg_monat": 1164,
+    "zuverdienst_relevantes_jahr_max": 3,
+    "partnerschaftsbonus_min_tage": 124,
+    "partnerschaftsbonus_antrag_tage": 124,
+    "partnerschaftsbonus_teilung_max": 0.6,
+    "gleichzeitig_max_tage": 31,
+    "systemwechsel_frist_tage": 14,
+    "variantenwechsel_vorlauf_tage": 91,
+    "block_min_tage": 61,
+    "_ergaenzt_2026_10_05": "Quelle kbgBroschuere (S. 12-16): Systemwahl nur binnen 14 Tagen ab erstmaliger Antragstellung änderbar (systemwechsel_frist_tage), Variante einmal bis spätestens 91 Tage vor Ende der ursprünglichen Anspruchsdauer (variantenwechsel_vorlauf_tage), Mindestbezugsdauer je Block 61 Tage (block_min_tage)."
+  },
+  "abfertigung": {
+    "_quelle": "bmsvg6",
+    "mv_satz": 0.0153,
+    "neu_mindest_beitragsjahre": 3,
+    "steuersatz": 0.06,
+    "alt_staffel": [
+      [
+        3,
+        2
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        10,
+        4
+      ],
+      [
+        15,
+        6
+      ],
+      [
+        20,
+        9
+      ],
+      [
+        25,
+        12
+      ]
+    ]
+  },
+  "sources": {
+    "estg33": {
+      "url": "https://www.ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10004570&Paragraf=33",
+      "label": {
+        "de": "RIS: § 33 EStG 1988 (Tarif und Absetzbeträge, Fassung 2026)",
+        "en": "RIS: Income Tax Act 1988, section 33 (tax scale and credits, 2026 version)"
+      }
+    },
+    "estg67": {
+      "url": "https://www.ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10004570&Paragraf=67",
+      "label": {
+        "de": "RIS: § 67 EStG 1988 (sonstige Bezüge, 13. und 14. Bezug)",
+        "en": "RIS: Income Tax Act 1988, section 67 (13th and 14th salary)"
+      }
+    },
+    "estg68": {
+      "url": "https://www.ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10004570&Paragraf=68",
+      "label": {
+        "de": "RIS: § 68 EStG 1988 (Zulagen, Zuschläge, Überstunden)",
+        "en": "RIS: Income Tax Act 1988, section 68 (overtime and allowances)"
+      }
+    },
+    "estg16": {
+      "url": "https://www.ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10004570&Paragraf=16",
+      "label": {
+        "de": "RIS: § 16 EStG 1988 (Werbungskosten, Pendlerpauschale)",
+        "en": "RIS: Income Tax Act 1988, section 16 (commuter allowance)"
+      }
+    },
+    "estg124b": {
+      "url": "https://www.ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10004570&Paragraf=124b",
+      "label": {
+        "de": "RIS: § 124b EStG 1988 (Übergangsrecht: Überstunden 2026, Mitarbeiterprämie 2026)",
+        "en": "RIS: Income Tax Act 1988, section 124b (transitional rules 2026)"
+      }
+    },
+    "bmfPresse": {
+      "url": "https://www.bmf.gv.at/presse/pressemeldungen/2025/dezember/brutto-netto-rechner.html",
+      "label": {
+        "de": "BMF, 30. Dezember 2025: Brutto-Netto-Rechner 2026 (Tarif +1,73 %, Pendlereuro 6 €)",
+        "en": "Finance Ministry, 30 December 2025: 2026 calculator (brackets +1.73%, commuter euro €6)"
+      }
+    },
+    "bmfRechner": {
+      "url": "https://onlinerechner.haude.at/BMF-Brutto-Netto-Rechner/",
+      "label": {
+        "de": "BMF: amtlicher Brutto-Netto-Rechner 2026",
+        "en": "Finance Ministry: official gross-to-net calculator 2026"
+      }
+    },
+    "bmfPendlerrechner": {
+      "url": "https://pendlerrechner.bmf.gv.at/",
+      "label": {
+        "de": "BMF: Pendlerrechner (Entfernung und Zumutbarkeit)",
+        "en": "Finance Ministry: commuter calculator (distance and public transport test)"
+      }
+    },
+    "bmfFamilienbonus": {
+      "url": "https://www.bmf.gv.at/themen/steuern/arbeitnehmerveranlagung/steuertarif-steuerabsetzbetraege/familienbonus-plus.html",
+      "label": {
+        "de": "BMF: Familienbonus Plus",
+        "en": "Finance Ministry: Familienbonus Plus (child tax credit)"
+      }
+    },
+    "oegkWerte": {
+      "url": "https://www.oegk.at/cdscontent/?contentid=10007.908421&portal=oegkdgportal",
+      "label": {
+        "de": "ÖGK: Veränderliche Werte 2026 (Höchstbeitragsgrundlage, Geringfügigkeitsgrenze)",
+        "en": "ÖGK health insurer: variable values 2026 (contribution ceiling, marginal-job limit)"
+      }
+    },
+    "oegkAv": {
+      "url": "https://www.oegk.at/cdscontent/?contentid=10007.904620&portal=oegkdgportal",
+      "label": {
+        "de": "ÖGK: Arbeitslosenversicherungsbeiträge bei geringem Einkommen ab 1.1.2026",
+        "en": "ÖGK: reduced unemployment insurance contribution for low earnings from 1 January 2026"
+      }
+    },
+    "oegkWfWien": {
+      "url": "https://www.oegk.at/cdscontent/?contentid=10007.908597&portal=oegkdgportal",
+      "label": {
+        "de": "ÖGK: Erhöhung des Wohnbauförderungsbeitrages in Wien ab 1.1.2026",
+        "en": "ÖGK: higher housing-subsidy contribution in Vienna from 1 January 2026"
+      }
+    },
+    "wienWbf": {
+      "url": "https://www.wien.gv.at/wohnen/wohnbaufoerderungsbeitrag",
+      "label": {
+        "de": "Stadt Wien: Wohnbauförderungsbeitrag (0,75 % ab 2026)",
+        "en": "City of Vienna: housing-subsidy contribution (0.75% from 2026)"
+      }
+    },
+    "wkoBeitraege": {
+      "url": "https://www.wko.at/entlohnung/beitragswesen-dienstnehmer-2026",
+      "label": {
+        "de": "WKO: Beitragswesen Dienstnehmer 2026 (Beitragssätze)",
+        "en": "Chamber of Commerce: 2026 employee contribution rates"
+      }
+    },
+    "wkoDb": {
+      "url": "https://www.wko.at/lohnverrechnung/dienstgeberbeitrag-familienlastenausgleichsfonds",
+      "label": {
+        "de": "WKO: Dienstgeberbeitrag (3,7 % ab 2025)",
+        "en": "Chamber of Commerce: employer family-fund contribution (3.7%)"
+      }
+    },
+    "wkoDz": {
+      "url": "https://www.wko.at/lohnverrechnung/zuschlag-dienstgeberbeitrag",
+      "label": {
+        "de": "WKO: Zuschlag zum Dienstgeberbeitrag nach Bundesland",
+        "en": "Chamber of Commerce: employer surcharge by federal state"
+      }
+    },
+    "amsWerte": {
+      "url": "https://www.ams.at/arbeitsuchende/arbeitslos-was-tun/massgebliche-werte",
+      "label": {
+        "de": "AMS: Maßgebliche Werte 2026",
+        "en": "AMS public employment service: reference values 2026"
+      }
+    },
+    "alvg21": {
+      "url": "https://www.ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10008407&Artikel=2&Paragraf=21",
+      "label": {
+        "de": "RIS: § 21 AlVG (Bemessung des Arbeitslosengeldes)",
+        "en": "RIS: Unemployment Insurance Act, section 21 (how benefit is assessed)"
+      }
+    },
+    "alvg18": {
+      "url": "https://www.ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10008407&Artikel=2&Paragraf=18",
+      "label": {
+        "de": "RIS: § 18 AlVG (Bezugsdauer)",
+        "en": "RIS: Unemployment Insurance Act, section 18 (benefit duration)"
+      }
+    },
+    "alvg36": {
+      "url": "https://www.ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10008407&Artikel=2&Paragraf=36",
+      "label": {
+        "de": "RIS: § 36 AlVG (Notstandshilfe)",
+        "en": "RIS: Unemployment Insurance Act, section 36 (emergency assistance)"
+      }
+    },
+    "akAlv": {
+      "url": "https://noe.arbeiterkammer.at/service/broschueren/arbeitundrecht/Arbeitslosenversicherung_2026.pdf",
+      "label": {
+        "de": "AK Niederösterreich: Arbeitslosenversicherung 2026 (Tabelle, Werte zum 1.3.2026)",
+        "en": "Chamber of Labour Lower Austria: unemployment insurance 2026 (benefit table)"
+      }
+    },
+    "ogvAlg": {
+      "url": "https://www.oesterreich.gv.at/de/themen/steuern_und_finanzen/unterstuetzungen_beihilfen_und_foerderungen/unterstuetzungen_bzw_beihilfen_fuer_arbeitsuchende_sowie_arbeitgeber/1/1/Seite.3610013",
+      "label": {
+        "de": "oesterreich.gv.at: Arbeitslosengeld, Höhe und Auszahlung",
+        "en": "oesterreich.gv.at: unemployment benefit, amount and payment"
+      }
+    },
+    "kbgKonto": {
+      "url": "https://www.bundeskanzleramt.gv.at/agenda/familie/kinderbetreuungsgeld/basisinformationen-kinderbetreuungsgeld/kinderbetreuungsgeld-konto-pauschalsystem.html",
+      "label": {
+        "de": "Bundeskanzleramt: Kinderbetreuungsgeld-Konto",
+        "en": "Federal Chancellery: childcare allowance account"
+      }
+    },
+    "kbgEa": {
+      "url": "https://www.bundeskanzleramt.gv.at/agenda/familie/kinderbetreuungsgeld/basisinformationen-kinderbetreuungsgeld/einkommensabhaengiges-kinderbetreuungsgeld.html",
+      "label": {
+        "de": "Bundeskanzleramt: einkommensabhängiges Kinderbetreuungsgeld",
+        "en": "Federal Chancellery: earnings-related childcare allowance"
+      }
+    },
+    "kbgBroschuere": {
+      "url": "https://www.bundeskanzleramt.gv.at/dam/jcr:27880960-10fc-4120-9568-f5074f943915/broschuere_kinderbetreuungsgeld_2026.pdf",
+      "label": {
+        "de": "Bundeskanzleramt: Broschüre Kinderbetreuungsgeld 2026",
+        "en": "Federal Chancellery: childcare allowance brochure 2026"
+      }
+    },
+    "bmsvg6": {
+      "url": "https://www.ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Gesetzesnummer=20002088&Paragraf=6",
+      "label": {
+        "de": "RIS: § 6 BMSVG (1,53 % Beitrag zur Abfertigung neu)",
+        "en": "RIS: Company Employee Provision Act, section 6 (1.53% severance contribution)"
+      }
+    },
+    "bmsvg14": {
+      "url": "https://www.ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Gesetzesnummer=20002088&Paragraf=14",
+      "label": {
+        "de": "RIS: § 14 BMSVG (Anspruch auf Abfertigung)",
+        "en": "RIS: Company Employee Provision Act, section 14 (right to payout)"
+      }
+    },
+    "angg23": {
+      "url": "https://www.ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10008069&Artikel=1&Paragraf=23",
+      "label": {
+        "de": "RIS: § 23 Angestelltengesetz (Abfertigung alt)",
+        "en": "RIS: Salaried Employees Act, section 23 (old severance scheme)"
+      }
+    },
+    "uspAbfertigung": {
+      "url": "https://www.usp.gv.at/themen/mitarbeiter-und-gesundheit/beendigung-des-arbeitsverhaeltnisses/abfertigung.html",
+      "label": {
+        "de": "Unternehmensserviceportal: Abfertigung",
+        "en": "Business Service Portal: severance pay"
+      }
+    },
+    "azg10": {
+      "url": "https://www.ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10008238&Paragraf=10",
+      "label": {
+        "de": "RIS: § 10 Arbeitszeitgesetz (Überstundenzuschlag 50 %)",
+        "en": "RIS: Working Time Act, section 10 (50% overtime premium)"
+      }
+    },
+    "oegkWochengeld": {
+      "url": "https://www.oegk.at/cdscontent/?contentid=10007.904729&portal=oegkdgportal",
+      "label": {
+        "de": "ÖGK: Wochengeld, Arbeits- und Entgeltbestätigung (Sonderzahlungszuschlag 14/17/21 %)",
+        "en": "ÖGK: maternity pay, earnings confirmation (14/17/21% special-payment surcharge)"
+      }
+    },
+    "ogvVeranlagung": {
+      "url": "https://www.oesterreich.gv.at/de/themen/arbeit_beruf_und_pension/arbeitnehmerveranlagung/Seite.340000",
+      "label": {
+        "de": "oesterreich.gv.at: Allgemeines zur Arbeitnehmerveranlagung",
+        "en": "oesterreich.gv.at: the employee tax assessment explained"
+      }
+    },
+    "ogvAntragslos": {
+      "url": "https://www.oesterreich.gv.at/de/themen/arbeit_beruf_und_pension/arbeitnehmerveranlagung/Seite.340002",
+      "label": {
+        "de": "oesterreich.gv.at: Antragslose Arbeitnehmerveranlagung",
+        "en": "oesterreich.gv.at: automatic tax assessment"
+      }
+    },
+    "bmfVeranlagung": {
+      "url": "https://www.bmf.gv.at/themen/steuern/arbeitnehmerveranlagung/verfahren-arbeitnehmerinnenveranlagung/arbeitnehmerinnenveranlagung.html",
+      "label": {
+        "de": "BMF: Arbeitnehmerinnenveranlagung im Überblick",
+        "en": "Finance Ministry: employee tax assessment overview"
+      }
+    },
+    "svSelbstversicherung": {
+      "url": "https://www.sozialversicherung.gv.at/cdscontent/?contentid=10007.870435",
+      "label": {
+        "de": "Sozialversicherung: Selbstversicherung bei geringfügiger Beschäftigung",
+        "en": "Social insurance: opt-in insurance for marginal employment"
+      }
+    },
+    "uspGeringfuegig": {
+      "url": "https://www.usp.gv.at/themen/mitarbeiter-und-gesundheit/einstellung-mitarbeiter-und-arten-der-beschaeftigung/geringfuegig-beschaeftigte.html",
+      "label": {
+        "de": "Unternehmensserviceportal: Geringfügig Beschäftigte",
+        "en": "Business Service Portal: marginally employed staff"
+      }
+    },
+    "ogvGeringfuegig": {
+      "url": "https://www.oesterreich.gv.at/de/lexicon/G/Seite.990083",
+      "label": {
+        "de": "oesterreich.gv.at: Geringfügige Beschäftigung",
+        "en": "oesterreich.gv.at: marginal employment"
+      }
+    },
+    "ogvWochengeld": {
+      "url": "https://www.oesterreich.gv.at/de/themen/familie_und_partnerschaft/geburt-eines-kindes/5/1/wochengeld",
+      "label": {
+        "de": "oesterreich.gv.at: Wochengeld",
+        "en": "oesterreich.gv.at: maternity pay (Wochengeld)"
+      }
+    },
+    "bmfUnterhalt": {
+      "url": "https://www.bmf.gv.at/themen/steuern/arbeitnehmerveranlagung/steuertarif-steuerabsetzbetraege/unterhaltsabsetzbetrag.html",
+      "label": {
+        "de": "BMF: Unterhaltsabsetzbetrag",
+        "en": "Finance Ministry: child maintenance credit"
+      }
+    },
+    "bmfAvab": {
+      "url": "https://www.bmf.gv.at/themen/steuern/arbeitnehmerveranlagung/steuertarif-steuerabsetzbetraege/alleinverdiener-alleinerzieher-absetzbetrag.html",
+      "label": {
+        "de": "BMF: Alleinverdiener- und Alleinerzieherabsetzbetrag",
+        "en": "Finance Ministry: sole earner and single parent credit"
+      }
+    },
+    "bmfAbsetzbetraege": {
+      "url": "https://www.bmf.gv.at/themen/steuern/arbeitnehmerveranlagung/steuertarif-steuerabsetzbetraege/uebersicht-steuerabsetzbetraege.html",
+      "label": {
+        "de": "BMF: Steuerabsetzbeträge im Überblick",
+        "en": "Finance Ministry: overview of tax credits"
+      }
+    },
+    "ogvKindermehrbetrag": {
+      "url": "https://www.oesterreich.gv.at/de/lexicon/K/Seite.992745",
+      "label": {
+        "de": "oesterreich.gv.at: Kindermehrbetrag",
+        "en": "oesterreich.gv.at: Kindermehrbetrag (child supplement)"
+      }
+    },
+    "ogvLohnzettel": {
+      "url": "https://www.oesterreich.gv.at/de/lexicon/L/Seite.991654",
+      "label": {
+        "de": "oesterreich.gv.at: L16, Lohnzettel und Beitragsgrundlagennachweis",
+        "en": "oesterreich.gv.at: L16 annual payslip"
+      }
+    },
+    "ogvNotstandshilfe": {
+      "url": "https://www.oesterreich.gv.at/de/themen/steuern_und_finanzen/unterstuetzungen_beihilfen_und_foerderungen/unterstuetzungen_bzw_beihilfen_fuer_arbeitsuchende_sowie_arbeitgeber/1/2",
+      "label": {
+        "de": "oesterreich.gv.at: Notstandshilfe",
+        "en": "oesterreich.gv.at: emergency assistance (Notstandshilfe)"
+      }
+    },
+    "alvg14": {
+      "url": "https://www.ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10008407&Artikel=2&Paragraf=14",
+      "label": {
+        "de": "RIS: § 14 AlVG (Anwartschaft)",
+        "en": "RIS: Unemployment Insurance Act, section 14 (qualifying period)"
+      }
+    },
+    "estg77": {
+      "url": "https://www.ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10004570&Paragraf=77",
+      "label": {
+        "de": "RIS: § 77 EStG 1988 (Kontrollsechstel, Abs. 4a)",
+        "en": "RIS: Income Tax Act 1988, section 77 (control sixth)"
+      }
+    },
+    "bmsvg17": {
+      "url": "https://www.ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Gesetzesnummer=20002088&Paragraf=17",
+      "label": {
+        "de": "RIS: § 17 BMSVG (Verfügung über die Abfertigung)",
+        "en": "RIS: Company Employee Provision Act, section 17 (using the severance)"
+      }
+    },
+    "estg41": {
+      "url": "https://www.ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10004570&Paragraf=41",
+      "label": {
+        "de": "RIS: § 41 EStG 1988 (Pflichtveranlagung bei zwei Bezügen gleichzeitig)",
+        "en": "RIS: Income Tax Act 1988, section 41 (mandatory assessment with two payrolls)"
+      }
+    },
+    "oegkHbg": {
+      "url": "https://www.oegk.at/cdscontent/?contentid=10007.904906&portal=oegkdgportal",
+      "label": {
+        "de": "ÖGK: Höchstbeitragsgrundlagen 2026 (Tag, Monat, Sonderzahlungen, freie DN)",
+        "en": "ÖGK: 2026 contribution ceilings (daily, monthly, special payments)"
+      }
+    },
+    "asvg70": {
+      "url": "https://www.ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10008147&Paragraf=70",
+      "label": {
+        "de": "RIS: § 70 ASVG (Erstattung von Pensionsversicherungsbeiträgen)",
+        "en": "RIS: General Social Insurance Act, section 70 (pension contribution refund)"
+      }
+    },
+    "alvg12": {
+      "url": "https://www.ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10008407&Artikel=2&Paragraf=12",
+      "label": {
+        "de": "RIS: § 12 AlVG (Arbeitslosigkeit, geringfügige Beschäftigung)",
+        "en": "RIS: Unemployment Insurance Act, section 12 (who counts as unemployed, mini-jobs)"
+      }
+    }
+  },
+  "wochengeld": {
+    "_quelle": "ogvWochengeld",
+    "schutzfrist_wochen_vor": 8,
+    "schutzfrist_wochen_nach": 8,
+    "schutzfrist_wochen_nach_besonders": 12,
+    "schutzfrist_wochen_nach_max": 16,
+    "bemessung_monate": 3,
+    "alvg_faktor": 1.8,
+    "fix_geringfuegig_selbstversichert_tag": 12.19,
+    "fix_selbstaendig_tag": 72.18,
+    "_hinweis": "oesterreich.gv.at Wochengeld (Stand 1.1.2026): 8 Wochen vor und 8 nach der Geburt (12 bei Mehrlings-, Früh-, Kaiserschnittgeburt), nach verkürzter Frist vor der Geburt höchstens 16 Wochen; Bemessung: Netto der vollen 3 Kalendermonate vor Beginn des Mutterschutzes; AlVG-Bezieherinnen 180 % der Leistung; Fixbeträge 2026."
+  },
+  "veranlagung": {
+    "_quelle": "ogvVeranlagung",
+    "pflicht_einkommen": 14769,
+    "veranlagungsfreibetrag": 730,
+    "antrag_frist_jahre": 5,
+    "antragslos_min_gutschrift": 5,
+    "pflicht_frist_papier": "30. April",
+    "pflicht_frist_online": "30. Juni"
+  },
+  "mitarbeiterpraemie_2026_mit_gewinnbeteiligung_max": 3000,
+  "_mitarbeiterpraemie_2026": "§ 124b EStG (estg124b): Juli bis Dezember 2026 bis 500 € steuerfrei, aufgrund lohngestaltender Vorschrift (§ 68 Abs. 5 Z 5 oder 6) oder Vereinbarung für alle Arbeitnehmer ohne Betriebsrat; zusätzlich, bisher nicht üblich; erhöht und verbraucht das Sechstel nicht; mit Gewinnbeteiligung zusammen höchstens 3.000 €, darüber Pflichtveranlagung."
+}

@@ -1,0 +1,28 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import LegalIdentity from '../../components/LegalIdentity.astro';
+import { AUTHOR_NAME, CONTACT_EMAIL, LAST_UPDATED, SITE_NAMES, SITE_URL } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+const lang = 'en';
+---
+<PageLayout title={`Legal notice – ${SITE_NAMES[lang]}`} description="Legal notice of the Austrian gross-to-net calculator: publisher, editorial line, hosting, liability for calculation results, copyright and how to reach us." lang={lang} noindex={true} breadcrumbs={[{ label: 'Legal notice' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Legal notice</h1>
+    <h2>Publisher</h2>
+    <LegalIdentity lang={lang} />
+    <p>Responsible for content: {AUTHOR_NAME}. Email: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</p>
+    <h2>Editorial line</h2>
+    <p>{SITE_URL} provides independent information on pay, wage tax, social insurance and benefits in Austria, with free calculators. It is not linked to any political party, interest group or payroll company.</p>
+    <h2>Hosting</h2>
+    <LegalIdentity mode="hosting" lang={lang} />
+    <h2>No advice, no guarantee</h2>
+    <p>The calculators give <strong>estimates</strong> based on the official 2026 values listed with source and date in the <a href={route('method', lang)}>calculation method</a>. They replace neither your payslip nor a decision of the tax office, ÖGK or AMS, nor tax or legal advice. Although tested automatically against the Finance Ministry calculator, we accept no liability for decisions based solely on a result from this site. Please report errors through the <a href={route('contact', lang)}>contact page</a>.</p>
+    <h2>Embedding the calculator</h2>
+    <p>The gross-to-net calculator can be embedded free of charge in an iframe with a visible link: see <a href={route('widget', lang)}>embed the calculator</a>.</p>
+    <h2>Copyright</h2>
+    <p>Texts, graphics and code are protected by copyright. Short quotes with a link to the original page are welcome. Legal texts and official values are public and quoted with their source.</p>
+    <h2>Privacy</h2>
+    <p>What you enter never leaves your browser. See the <a href={route('privacy', lang)}>privacy policy</a> and <a href={route('cookies', lang)}>cookies</a>.</p>
+    <p class="text-sm">Last updated: {LAST_UPDATED}.</p>
+  </div>
+</PageLayout>

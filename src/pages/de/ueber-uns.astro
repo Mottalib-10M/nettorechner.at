@@ -1,0 +1,29 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { YEAR, LAST_UPDATED, AUTHOR_NAME, CONTACT_EMAIL, AUTHOR_ROLE, SITE_NAMES } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+import { personSchema, organizationSchema, breadcrumbSchema, profilePageSchema } from '../../lib/seo';
+import { displayDate } from '../../lib/format';
+import { BMF_FAELLE, BMF_DATUM, AK_ZEILEN } from '../../lib/pruefung';
+const lang = 'de';
+---
+<PageLayout title="Radif Partners: wer den Brutto-Netto-Rechner herausgibt" description="Wer den Brutto-Netto-Rechner für Österreich herausgibt, warum er Sonderzahlungen Monat für Monat rechnet und wie er gegen den BMF-Rechner geprüft wird." lang={lang} jsonLd={[personSchema(lang), organizationSchema(lang), profilePageSchema({ path: route('about', lang), lang }), breadcrumbSchema([{ name: 'Start', path: route('home', lang) }, { name: 'Über uns', path: route('about', lang) }])]} breadcrumbs={[{ label: 'Über uns' }]}>
+  <header class="mb-6"><h1 class="text-3xl font-bold text-navy-900 md:text-4xl">Über {SITE_NAMES.de}</h1></header>
+  <div class="prose prose-slate max-w-none">
+    <div class="not-prose mb-6"><p class="text-lg font-semibold text-navy-900">{AUTHOR_NAME}</p><p class="text-navy-700">{AUTHOR_ROLE[lang]}</p></div>
+    <p>Hinter dieser Seite steht Radif Partners, ein unabhängiger Herausgeber von Rechnern zu Lohn, Steuern und Sozialleistungen. Für Österreich haben wir eine Frage ernst genommen, die jeder neue Arbeitnehmer stellt und die erstaunlich schlecht beantwortet wird: Was bleibt von meinem Gehalt, und zwar in jedem Monat, nicht nur im Durchschnitt?</p>
+    <h2>Warum diese Seite besser rechnet</h2>
+    <p>Die gängigen Brutto-Netto-Rechner gehen von zwölf gleichen Gehältern und zwei gleichen Sonderzahlungen aus. Das österreichische Recht rechnet anders: Der 13. und 14. Bezug werden nur innerhalb des Jahressechstels mit 6 % besteuert, und dieses Sechstel verändert sich mit jeder Gehaltserhöhung, jedem Eintritt im Laufe des Jahres und jeder Prämie. Am Jahresende prüft die Lohnverrechnung noch einmal nach. Unser Rechner geht deshalb Monat für Monat durch das Jahr, so wie es Ihre Personalabteilung tut, und zeigt Pendlerpauschale und Pendlereuro gleich im selben Lohnzettel.</p>
+    <h2>Wie wir prüfen</h2>
+    <p>Am {displayDate(BMF_DATUM, 'de-AT')} haben wir den amtlichen Brutto-Netto-Rechner des Finanzministeriums {BMF_FAELLE}-mal abgefragt und unsere Ergebnisse daneben gelegt: Sozialversicherung und Lohnsteuer stimmen auf den Cent. Das Arbeitslosengeld haben wir gegen die {AK_ZEILEN} Zeilen der Tabelle der Arbeiterkammer Niederösterreich geprüft. Jeder Wert, vom Steuertarif über die Höchstbeitragsgrundlage bis zum Tagsatz des Kinderbetreuungsgeldes, ist im RIS, bei der ÖGK, beim AMS oder beim Bundeskanzleramt nachgelesen und datiert. Einzelheiten stehen in der <a href={route('method', lang)}>Berechnungsmethode</a>.</p>
+    <h2>Was wir nicht sind</h2>
+    <p>Wir sind weder Steuerberater noch Lohnverrechner, weder Behörde noch Arbeiterkammer. Die Seite gibt keine individuelle Beratung und vermittelt nichts. Für verbindliche Auskünfte sind Ihr Arbeitgeber, das Finanzamt Österreich, die ÖGK und das AMS zuständig.</p>
+    <h2>Finanzierung</h2>
+    <p>Die Rechner sind kostenlos und ohne Anmeldung. Sollte die Seite eines Tages Werbung zeigen, steht sie nie über einem Rechner. Ihre Eingaben verlassen den Browser nicht und werden nirgends gespeichert.</p>
+    <h2>Auf Englisch</h2>
+    <p>Jede Seite gibt es auch auf Englisch, geschrieben für Menschen, die in Österreich arbeiten und Deutsch noch lernen: Begriffe wie Lohnzettel, Sonderzahlung oder Pendlerpauschale werden dort erklärt, die Beträge bleiben in Euro.</p>
+    <h2>Kontakt</h2>
+    <p>Ein Wert ist veraltet, ein Fall fehlt, ein Ergebnis weicht von Ihrem Lohnzettel ab? Schreiben Sie an <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. Siehe auch die <a href={route('editorial', lang)}>Redaktionsgrundsätze</a> und das <a href={route('terms', lang)}>Impressum</a>.</p>
+    <p class="text-sm text-navy-600">Werte {YEAR}, geprüft am <time datetime={LAST_UPDATED}>{displayDate(LAST_UPDATED, 'de-AT')}</time>.</p>
+  </div>
+</PageLayout>

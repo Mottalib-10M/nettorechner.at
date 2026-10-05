@@ -1,0 +1,35 @@
+# Rechtsinformationssystem des Bundes (Bundeskanzleramt): amtliche, konsolidierte Fassung von EStG, AlVG, AngG, BMSVG, AZG
+ris.bka.gv.at
+
+# Bundesministerium für Finanzen: Lohnsteuer, Absetzbeträge, Pendlerrechner, amtlicher Brutto-Netto-Rechner
+bmf.gv.at
+
+# Amtlicher Brutto-Netto-Rechner des BMF, im Auftrag des Ministeriums von Haude betrieben (Link von bmf.gv.at/rechner)
+onlinerechner.haude.at
+
+# Amtliches Bürgerportal der Republik Österreich (Bundesministerium für Finanzen)
+oesterreich.gv.at
+
+# Österreichische Gesundheitskasse: Beitragssätze, Höchstbeitragsgrundlage, Geringfügigkeitsgrenze, Wochengeld
+oegk.at
+
+# Dachverband der Sozialversicherungsträger: Selbstversicherung, Beitragsrecht
+sozialversicherung.gv.at
+
+# Arbeitsmarktservice: maßgebliche Werte für Arbeitslosengeld und Notstandshilfe
+ams.at
+
+# Bundeskanzleramt: Kinderbetreuungsgeld (zuständiges Ministerium für Familie)
+bundeskanzleramt.gv.at
+
+# Stadt Wien: Landesgesetzgeber für den Wiener Wohnbauförderungsbeitrag
+wien.gv.at
+
+# Unternehmensserviceportal des Bundes: Abfertigung, Dienstgeberpflichten
+usp.gv.at
+
+# Arbeiterkammer: gesetzliche Interessenvertretung der Arbeitnehmer (Körperschaft öffentlichen Rechts), Richtwerttabelle ALG
+arbeiterkammer.at
+
+# Wirtschaftskammer: gesetzliche Interessenvertretung (Körperschaft öffentlichen Rechts), Beitragssätze und Lohnnebenkosten
+wko.at

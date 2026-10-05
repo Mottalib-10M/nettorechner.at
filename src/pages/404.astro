@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { route } from '../i18n/routes';
+---
+<BaseLayout title="Seite nicht gefunden · Page not found" description="Diese Seite gibt es nicht. This page does not exist." lang="de" noindex={true}>
+  <div class="mx-auto max-w-3xl px-4 py-16">
+    <h1 class="text-3xl font-bold text-navy-900">Diese Seite gibt es nicht</h1>
+    <p class="mt-4 text-navy-700">Vielleicht hat sich die Adresse geändert. Am häufigsten gesucht werden der <a class="underline" href={route('home', 'de')}>Brutto-Netto-Rechner</a>, der <a class="underline" href={route('sonderzahlungen', 'de')}>Rechner für Urlaubs- und Weihnachtsgeld</a> und der <a class="underline" href={route('pendlerpauschale', 'de')}>Pendlerpauschale-Rechner</a>.</p>
+    <p class="mt-6 text-navy-700" lang="en">This page does not exist. Try the <a class="underline" href={route('home', 'en')}>Austrian gross-to-net calculator</a>, the <a class="underline" href={route('sonderzahlungen', 'en')}>holiday and Christmas pay calculator</a> or the <a class="underline" href={route('pendlerpauschale', 'en')}>commuter allowance calculator</a>.</p>
+  </div>
+</BaseLayout>
