@@ -5,7 +5,7 @@ import { CONTACT_EMAIL, LAST_UPDATED, LEGAL, SITE_NAMES, SITE_URL } from '../../
 import { route } from '../../i18n/routes';
 const lang = 'en';
 ---
-<PageLayout title={`Privacy policy – ${SITE_NAMES[lang]}`} description="What data this Austrian pay calculator processes: none of your inputs, only the host's server logs. Legal bases, retention, your GDPR rights and where to complain." lang={lang} noindex={true} breadcrumbs={[{ label: 'Privacy' }]} showAuthor={false}>
+<PageLayout title={`Privacy policy – ${SITE_NAMES[lang]}`} description="What data this Austrian pay calculator processes: none of your inputs, the host’s server logs and, only with consent, Microsoft Clarity. Legal bases, retention, your GDPR rights." lang={lang} noindex={true} breadcrumbs={[{ label: 'Privacy' }]} showAuthor={false}>
   <div class="prose prose-slate max-w-none">
     <h1>Privacy policy</h1>
     <p>This policy describes the processing of personal data on {SITE_URL} under Articles 13 and 14 of the General Data Protection Regulation (GDPR).</p>
@@ -16,10 +16,10 @@ const lang = 'en';
     <p>Salary, number of children, commuting distance and every other input are processed only in your browser. They are not sent to any server, not stored and not linked to any identifier. The share link carries your inputs in the address: pass it on only to people you choose.</p>
     <h2>3. Processing</h2>
     <h3>Server logs</h3><p>The host records IP address, time, page requested, browser and referring page. Purpose: security and troubleshooting. Legal basis: legitimate interest (Article 6(1)(f) GDPR). Retention according to the host, GitHub.</p>
-    <h3>Analytics and advertising</h3><p>The site currently loads no analytics and no advertising. If one is added, it will only load after your consent through a banner, and this policy will be updated.</p>
+    <h3>Audience measurement with Microsoft Clarity (only with consent)</h3><p>If you accept in the banner, the site loads Microsoft Clarity, provided by Microsoft Ireland Operations Limited, One Microsoft Place, Dublin. Purpose: understanding which pages are used and where visitors give up. Processed: clicks, scrolling, pages viewed with their address, device and browser type and an approximate location derived from the IP address; your calculator inputs are masked in the browser. Legal basis: your consent (Article 6(1)(a) GDPR and § 165(3) of the Austrian Telecommunications Act 2021), which you can withdraw at any time through “Cookie settings” in the footer. Microsoft keeps recordings for 30 days and aggregated data for up to 13 months. Without consent, Clarity is not loaded. The site shows no advertising. Cookie details: <a href={route('cookies', lang)}>cookies</a>.</p>
     <h3>Email</h3><p>If you write to us, we process your address and message to reply. Legal basis: legitimate interest. Retention: three years after the last exchange.</p>
-    <h2>4. Recipients</h2><p>No disclosure, no sale. Only the host has access to logs, as a processor (Article 28 GDPR).</p>
-    <h2>5. Transfers outside the EU</h2><p>The host, GitHub, Inc., is based in the United States; logs may be processed there under the EU-US Data Privacy Framework and the European Commission’s standard contractual clauses.</p>
+    <h2>4. Recipients</h2><p>No disclosure, no sale. The host has access to logs, as a processor (Article 28 GDPR); after your consent, Microsoft receives the Clarity data.</p>
+    <h2>5. Transfers outside the EU</h2><p>The host, GitHub, Inc., is based in the United States; logs may be processed there under the EU-US Data Privacy Framework and the European Commission’s standard contractual clauses. The same applies to Clarity data at Microsoft Corporation.</p>
     <h2>6. Your rights</h2><p>Access, rectification, erasure, restriction, objection and portability (Articles 15 to 21 GDPR): write to <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>; we reply within one month. You may complain to our lead authority ({LEGAL.supervisoryAuthority}, <a href={LEGAL.supervisoryAuthorityUrl} rel="nofollow noopener" target="_blank">{LEGAL.supervisoryAuthorityUrl}</a>) or to the authority where you live, in Austria the <a href="https://www.dsb.gv.at" rel="nofollow noopener" target="_blank">Datenschutzbehörde</a> (Article 77 GDPR).</p>
     <h2>7. No automated decisions</h2><p>A calculation is an estimate made at your request, with no legal effect, and not an automated decision under Article 22 GDPR.</p>
     <p>See also <a href={route('cookies', lang)}>cookies</a>. Last updated: {LAST_UPDATED}.</p>
