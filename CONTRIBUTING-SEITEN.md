@@ -1,4 +1,4 @@
-# Eine Seite hinzufügen (Brutto-Netto Österreich)
+# Eine Seite hinzufügen (Nettorechner)
 
 Anleitung für Agenten, die die Seite erweitern. Vor der ersten Zeile ganz lesen, zusammen mit
 `~/Documents/GitHub/RECETTE-SITE.md` (§0, §4.1, §6, §7, §9.3, §11, §17.4, §21, §26).

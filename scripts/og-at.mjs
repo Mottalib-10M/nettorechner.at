@@ -7,8 +7,8 @@ const PUBLIC = join(dirname(fileURLToPath(import.meta.url)), '..', 'public');
 const logo = readFileSync(join(PUBLIC, 'logo.svg'), 'utf8').replace(/<svg([^>]*)>/, '<svg$1 width="120" height="120">');
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
 const V = [
-  { file: 'og-de.png', brand: 'Brutto-Netto Österreich', t1: 'Brutto-Netto-Rechner', t2: 'Österreich 2026', sub: '13. und 14. Gehalt · Pendlerpauschale · geprüft am BMF-Rechner' },
-  { file: 'og-en.png', brand: 'Austria Net Pay', t1: 'Gross-to-net calculator', t2: 'Austria 2026', sub: '13th and 14th salary · commuter allowance · checked vs BMF' },
+  { file: 'og-de.png', brand: 'Nettorechner', t1: 'Brutto-Netto-Rechner', t2: 'Österreich 2026', sub: '13. und 14. Gehalt · Pendlerpauschale · geprüft am BMF-Rechner' },
+  { file: 'og-en.png', brand: 'Nettorechner', t1: 'Gross-to-net calculator', t2: 'Austria 2026', sub: '13th and 14th salary · commuter allowance · checked vs BMF' },
 ];
 for (const v of V) {
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630"><rect width="1200" height="630" fill="#fff"/>

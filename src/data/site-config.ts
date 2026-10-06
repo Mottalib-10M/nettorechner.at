@@ -1,6 +1,6 @@
 /** Configuration centrale du site (générée par new-site.py). */
-export const SITE_URL = "https://at-brutto-netto.example";
-export const SITE_NAMES: Record<string, string> = {"de": "Brutto-Netto Österreich", "en": "Austria Net Pay"};
+export const SITE_URL = "https://nettorechner.at";
+export const SITE_NAMES: Record<string, string> = {"de": "Nettorechner", "en": "Nettorechner"};
 export const LANG_TAGS: Record<string, string> = {"de": "de-AT", "en": "en-AT"};
 export const OG_LOCALES: Record<string, string> = {"de": "de_AT", "en": "en_GB"};
 /** Zahlenformat je Sprache: deutsch mit Punkt als Tausendertrennzeichen (1.308,39), englisch für Expats (1,308.39). */
@@ -18,7 +18,7 @@ export const AUTHOR_DESC: Record<string, string> = {"de": "Radif Partners rechne
  *  themes reellement traites par le site, pas une liste de mots-cles : un sujet
  *  declare ici sans page qui le couvre est une declaration fausse. */
 export const KNOWS_ABOUT: Record<string, string[]> = {"de": ["Lohnsteuer Österreich", "Sozialversicherungsbeiträge nach ASVG", "13. und 14. Bezug, Jahressechstel", "Pendlerpauschale und Pendlereuro", "Familienbonus Plus und Kindermehrbetrag", "Alleinverdiener- und Alleinerzieherabsetzbetrag", "Arbeitslosengeld und Notstandshilfe", "Kinderbetreuungsgeld", "Abfertigung neu und alt", "Überstundenzuschläge"], "en": ["Austrian wage tax", "Austrian social insurance contributions", "13th and 14th salary, annual sixth rule", "Commuter allowance (Pendlerpauschale)", "Familienbonus Plus child tax credit", "Sole earner and single parent credits", "Unemployment benefit and emergency assistance", "Childcare allowance", "Severance pay (Abfertigung)", "Overtime premiums"]};
-export const CONTACT_EMAIL = "contact@at-brutto-netto.example";
+export const CONTACT_EMAIL = "contact@nettorechner.at";
 export const THEME_COLOR = '#C8102E';
 export const LOGO_SYMBOL = '€';
 export const BING_VERIFY_CODE = '';
