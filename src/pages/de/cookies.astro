@@ -4,15 +4,13 @@ import { CONTACT_EMAIL, LAST_UPDATED, SITE_NAMES } from '../../data/site-config'
 import { route } from '../../i18n/routes';
 const lang = 'de';
 ---
-<PageLayout title={`Cookies – ${SITE_NAMES[lang]}`} description="Welche Cookies der Brutto-Netto-Rechner setzt: ohne Ihre Einwilligung keine. Mit Einwilligung Microsoft Clarity zur Reichweitenmessung, mit Laufzeiten und Widerruf." lang={lang} noindex={true} breadcrumbs={[{ label: 'Cookies' }]} showAuthor={false}>
+<PageLayout title={`Cookies – ${SITE_NAMES[lang]}`} description="Der Brutto-Netto-Rechner setzt keine Cookies und speichert nichts über Sie. Die Stabilität der Seite wird anonym mit Microsoft Clarity im cookiefreien Modus geprüft." lang={lang} noindex={true} breadcrumbs={[{ label: 'Cookies' }]} showAuthor={false}>
   <div class="prose prose-slate max-w-none">
     <h1>Cookies</h1>
     <p>Ergänzung zur <a href={route('privacy', lang)}>Datenschutzerklärung</a>.</p>
-    <h2>Ohne Einwilligung keine Cookies</h2><p>Die Rechner laufen vollständig in Ihrem Browser und setzen selbst keine Cookies. Solange Sie im Banner nicht zustimmen, lädt die Seite kein Messwerkzeug und speichert nichts außer Ihrer Entscheidung.</p>
-    <h2>Technisch notwendig</h2><p>Ihre Entscheidung im Banner liegt unter dem Schlüssel <code>consent-choice</code> im <code>localStorage</code> Ihres Browsers, damit wir nicht bei jedem Aufruf erneut fragen. Sie enthält keine Kennung, verlässt Ihr Gerät nicht und ist nach § 165 Abs. 3 TKG 2021 nicht einwilligungspflichtig.</p>
-    <h2>Statistik, nur mit Einwilligung: Microsoft Clarity</h2><p>Nach Ihrer Zustimmung lädt die Seite Microsoft Clarity der Microsoft Ireland Operations Limited. Clarity zeigt in anonymen Sitzungsaufzeichnungen und Heatmaps, welche Seiten aufgerufen werden, wohin geklickt und wie weit gescrollt wird. Gehalt, Kinderzahl, Wegstrecke und die übrigen Eingaben werden im Browser maskiert, bevor etwas gesendet wird. Cookies: <code>_clck</code> (ein Jahr) und <code>_clsk</code> (ein Tag); auf Microsoft-eigenen Domains können <code>MUID</code> und <code>CLID</code> hinzukommen. Wer über einen geteilten Link mit Eingaben in der Adresse ankommt, dessen Ankunftsadresse wird mit erfasst.</p>
-    <h2>Werbung</h2><p>Die Seite zeigt keine Werbung, setzt keine Werbe-Cookies und bindet keine sozialen Netzwerke ein.</p>
-    <h2>Einwilligung widerrufen</h2><p>Der Link „Cookie-Einstellungen“ im Seitenfuß öffnet das Banner erneut: Lehnen Sie dort ab, wird Clarity nicht mehr geladen. Bereits gesetzte Cookies entfernen Sie, indem Sie die Websitedaten im Browser löschen. Der Widerruf wirkt für die Zukunft.</p>
+    <h2>Keine Cookies</h2><p>Diese Website setzt auf keiner Seite ein Cookie, und die Rechner legen nichts auf Ihrem Gerät ab: Gehalt, Kinderzahl und Wegstrecke bleiben in der geöffneten Seite und sind weg, sobald Sie sie schließen. Deshalb gibt es auch kein Cookie-Banner, es gibt nichts zuzustimmen.</p>
+    <h2>Anonyme Prüfung der Stabilität</h2><p>Um defekte Seiten, Skriptfehler, langsame Ladezeiten und Schaltflächen ohne Wirkung zu erkennen, lädt die Seite Microsoft Clarity im cookiefreien Modus. Clarity setzt dann kein Cookie (weder <code>_clck</code> und <code>_clsk</code> noch <code>MUID</code> oder <code>CLID</code>), vergibt für jeden Seitenaufruf eine eigene, einmalige Kennung und verknüpft Ihre Besuche nicht miteinander. Seiteninhalte und Eingaben werden maskiert, bevor etwas übertragen wird.</p>
+    <h2>Trotzdem blockieren</h2><p>Wer auch diese Messung nicht möchte, blockiert die Domain clarity.ms oder nutzt einen Inhaltsblocker; die Rechner funktionieren unverändert.</p>
     <p>Fragen: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. Stand: {LAST_UPDATED}.</p>
   </div>
 </PageLayout>
