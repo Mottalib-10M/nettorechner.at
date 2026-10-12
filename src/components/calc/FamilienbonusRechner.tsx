@@ -41,7 +41,7 @@ export default function FamilienbonusRechner({ lang = 'de', methodHref }: { lang
           </div>
           <FamilieFelder lang={lang} id="fb" s={s} set={set} />
         </form>
-        <div aria-live="polite" className={kasten}>
+        <div aria-live="polite" data-resultat className={kasten}>
           <Kopf label={tx(lang, 'Familienbonus, der bei Ihnen wirkt', 'Familienbonus that actually applies')} wert={$(genutzt)} unter={tx(lang, `von möglichen ${$(max)} im Jahr · ${$(genutzt / 12, 2)} pro Monat`, `out of a possible ${$(max)} a year · ${$(genutzt / 12, 2)} per month`)} />
           <Lohnzettel rows={[
             { label: tx(lang, 'Lohnsteuer pro Monat ohne Familienbonus', 'Monthly wage tax without Familienbonus'), value: $(ohne.monate[0].lstLaufend, 2), muted: true },

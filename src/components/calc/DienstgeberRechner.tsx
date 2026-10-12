@@ -28,7 +28,7 @@ export default function DienstgeberRechner({ lang = 'de', methodHref }: { lang?:
           </div>
           <p className="text-sm text-navy-700">{tx(lang, `Zuschlag zum DB in ${LAND_NAME[s.land]}: ${pc(P.dienstgeber.dz[s.land])}. Nicht enthalten: Wiener Dienstgeberabgabe, Betriebsratsumlagen, freiwillige Leistungen.`, `Employer surcharge in ${LAND_NAME[s.land]}: ${pc(P.dienstgeber.dz[s.land])}. Not included: Vienna employer levy, works council levies, voluntary benefits.`)}</p>
         </form>
-        <div aria-live="polite" className={kasten}>
+        <div aria-live="polite" data-resultat className={kasten}>
           <Kopf label={tx(lang, 'Kosten für den Dienstgeber pro Jahr', 'Employer cost per year')} wert={$(d.jahr)} unter={tx(lang, `${$(d.jahrBrutto)} brutto plus ${formatPercent(d.aufschlag, 1, lang)} Lohnnebenkosten`, `${$(d.jahrBrutto)} gross plus ${formatPercent(d.aufschlag, 1, lang)} payroll costs`)} />
           <Lohnzettel rows={[
             { label: tx(lang, 'Bruttogehalt', 'Gross salary'), value: $(b, 2) },

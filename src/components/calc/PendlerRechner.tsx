@@ -46,7 +46,7 @@ export default function PendlerRechner({ lang = 'de', methodHref }: { lang?: L; 
             </table>
           </div>
         </form>
-        <div aria-live="polite" className={kasten}>
+        <div aria-live="polite" data-resultat className={kasten}>
           <Kopf label={tx(lang, 'Mehr netto pro Monat', 'Extra net per month')} wert={$(plus, 2)} unter={tx(lang, `${$(plus * 12)} im Jahr über den Lohnzettel`, `${$(plus * 12)} a year through payroll`)} />
           <Lohnzettel rows={[
             { label: tx(lang, 'Pendlerpauschale (Freibetrag) pro Jahr', 'Commuter allowance (deduction) per year'), value: $(pp) },

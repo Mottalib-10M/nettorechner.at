@@ -55,7 +55,9 @@ h1 { font-weight: 700; } h2 { font-weight: 650; } h3 { font-weight: 600; }
   .clamp-toggle { position: absolute; width: 1px; height: 1px; opacity: 0; }
   .clamp-toggle:checked ~ p .clamp-rest { display: inline; }
   .clamp-toggle:checked ~ .clamp-more { display: none; }
-  .clamp-more { display: inline-block; cursor: pointer; margin-top: 0.25rem; font-size: 0.875rem; font-weight: 600; color: #7f0d1f; text-decoration: underline; text-underline-offset: 3px; }
+  /* Der Link folgt der letzten sichtbaren Zeile statt eine eigene Zeile zu belegen (erster Bildschirm, 2026-10-11). */
+  .clamp > p { display: inline; }
+  .clamp-more { display: inline-block; cursor: pointer; margin-left: 0.25rem; font-size: 0.875rem; font-weight: 600; color: #7f0d1f; text-decoration: underline; text-underline-offset: 3px; }
   .clamp-toggle:focus-visible ~ .clamp-more { outline: 2px solid #7f0d1f; outline-offset: 3px; }
   /* Rot-Weiß-Rot : filet tricolore discret sous l'en-tête du calculateur et des encadrés. */
   .rwr { background: linear-gradient(to bottom, #C8102E 0 33.3%, #ffffff 33.3% 66.6%, #C8102E 66.6% 100%); }

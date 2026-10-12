@@ -1,5 +1,5 @@
 /** Gemeinsame Bausteine der Rechner: Lohnzettel-Zeilen, Ergebnis-Kopf, Aktionen (Kopieren, Link, Drucken). */
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export type L = 'de' | 'en';
 export const tx = <A,>(l: L, de: A, en: A) => (l === 'en' ? en : de);
@@ -39,11 +39,28 @@ export function Aktionen({ lang, text }: { lang: L; text: () => string }) {
 
 /** Ergebnis-Kopf: eine große Zahl, eine Zeile darunter. */
 export function Kopf({ label, wert, unter }: { label: string; wert: string; unter?: string }) {
+  // Telefon: solange das Ergebnis unter dem Bildschirm liegt, zeigt eine Leiste unten die Kennzahl (RECETTE §5, 2026-10-11).
+  const ref = useRef<HTMLDivElement>(null);
+  const [unten, setUnten] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || typeof IntersectionObserver === 'undefined') return;
+    const io = new IntersectionObserver(([e]) => setUnten(!e.isIntersecting && e.boundingClientRect.top > 0));
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
   return (
-    <div>
+    <div ref={ref}>
       <p className="text-sm font-medium text-navy-700">{label}</p>
       <p className="tabular-nums mt-1 font-serif text-4xl font-bold text-navy-900">{wert}</p>
       {unter && <p className="tabular-nums mt-1 text-sm text-navy-700">{unter}</p>}
+      {unten && (
+        <button type="button" aria-hidden="true" tabIndex={-1} onClick={() => ref.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
+          className="no-print fixed inset-x-0 bottom-0 z-40 flex items-baseline justify-between gap-3 border-t border-accent-200 bg-accent-50 px-4 py-3 text-left shadow-lg lg:hidden">
+          <span className="text-sm font-medium text-navy-700">{label}</span>
+          <span className="tabular-nums text-xl font-bold text-navy-900">{wert}</span>
+        </button>
+      )}
     </div>
   );
 }

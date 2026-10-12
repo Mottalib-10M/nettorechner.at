@@ -34,7 +34,7 @@ export default function KbgRechner({ lang = 'de', methodHref }: { lang?: L; meth
           </div>
           <p className="text-sm text-navy-700">{tx(lang, `Konto: ${K.konto_tage_ein_elternteil_min} bis ${K.konto_tage_ein_elternteil_max} Tage für einen Elternteil, ${K.konto_tage_beide_min} bis ${K.konto_tage_beide_max} Tage für beide. Einkommensabhängig: bis zum ${K.ea_tage_ein}. Tag, mit beiden Eltern bis zum ${K.ea_tage_beide}.`, `Account: ${K.konto_tage_ein_elternteil_min} to ${K.konto_tage_ein_elternteil_max} days for one parent, ${K.konto_tage_beide_min} to ${K.konto_tage_beide_max} days for both. Earnings-related: up to day ${K.ea_tage_ein}, with both parents up to day ${K.ea_tage_beide}.`)}</p>
         </form>
-        <div aria-live="polite" className={kasten}>
+        <div aria-live="polite" data-resultat className={kasten}>
           <Kopf label={tx(lang, 'KBG-Konto pro Tag', 'Account allowance per day')} wert={$(k.tagsatz, 2)} unter={tx(lang, `${k.tage} Tage · rund ${$(k.monat)} im Monat · gesamt ${$(k.gesamt)}`, `${k.tage} days · about ${$(k.monat)} a month · total ${$(k.gesamt)}`)} />
           <Lohnzettel rows={[
             ...(k.partnerTage > 0 ? [{ label: tx(lang, 'davon dem zweiten Elternteil vorbehalten (20 %)', 'reserved for the second parent (20%)'), value: `${k.partnerTage} ${tx(lang, 'Tage', 'days')}`, muted: true }] : []),

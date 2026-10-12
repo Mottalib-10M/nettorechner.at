@@ -33,7 +33,7 @@ export default function NettoBruttoRechner({ lang = 'de', methodHref }: { lang?:
             <div className="mt-4 space-y-4"><FamilieFelder lang={lang} id="nb" s={s} set={set} /><PendlerFelder lang={lang} id="nb" s={s} set={set} /></div>
           </details>
         </form>
-        <div aria-live="polite" className={kasten}>
+        <div aria-live="polite" data-resultat className={kasten}>
           <Kopf label={tx(lang, 'Nötiges Bruttogehalt pro Monat', 'Gross salary needed per month')} wert={$(brutto)} unter={tx(lang, `Jahresbrutto ${$(j.brutto)} bei 14 Bezügen`, `Annual gross ${$(j.brutto)} with 14 payments`)} />
           <Lohnzettel rows={[
             { label: tx(lang, 'Brutto', 'Gross'), value: $(brutto, 2) },

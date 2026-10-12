@@ -1,8 +1,8 @@
 ---
 /**
  * Rendering einer Ratgeber- oder Rechnerseite aus `src/content/`. Reihenfolge (RECETTE §9.3, §21):
- * H1 und Einleitung; Rechnerseite: Rechner, dann zitierbarer Absatz (eingeklappt); Ratgeber: zitierbarer Absatz,
- * Mini-Rechner, Text. FAQ, verwandte Seiten, Quellen und Autorenkasten kommen aus dem PageLayout (§7).
+ * H1 und Einleitung, zitierbarer Absatz (eingeklappt, RECETTE §26), dann Rechner bzw. Mini-Rechner, darunter
+ * „Geprüft von“, dann der Text (Rechner auf dem ersten Bildschirm, RECETTE §5, 2026-10-11). FAQ, verwandte Seiten, Quellen und Autorenkasten kommen aus dem PageLayout (§7).
  */
 import PageLayout from '../layouts/PageLayout.astro';
 import MiniSim from './calc/MiniSim';
@@ -44,14 +44,13 @@ const preset = (page.toolPreset ?? {}) as Record<string, never>;
 ---
 <PageLayout title={x.title} description={x.description} lang={lang} jsonLd={jsonLd} faqs={x.faqs} related={related} sources={sources} breadcrumbs={[{ label: x.nav }]}>
   <article>
-    <header class="mb-6">
-      <h1 class="text-3xl font-bold text-navy-900 md:text-4xl">{x.h1}</h1>
-      <p class="mt-3 text-lg text-navy-700">{x.intro}</p>
-      <p class="mt-3 text-sm text-navy-600">{ui.reviewedBy} <a href={route('about', lang)} class="underline hover:text-navy-900">{AUTHOR_NAME}</a> · <a href={route('editorial', lang)} class="underline hover:text-navy-900">{ui.editorialPolicy}</a> · <a href={methodHref} class="underline hover:text-navy-900">{label('method', lang)}</a></p>
+    <header class="mb-3">
+      <h1 class="text-[1.75rem] font-bold text-navy-900 max-sm:leading-tight sm:text-3xl md:text-4xl">{x.h1}</h1>
+      <p class="mt-2 text-base text-navy-700 sm:text-lg">{x.intro}</p>
     </header>
     {page.tool ? (
       <>
-        <Clamp text={x.resume} lang={lang} id={`clamp-${page.id}`} class="mb-6" />
+        <Clamp text={x.resume} lang={lang} id={`clamp-${page.id}`} class="mb-3" />
         <div data-outil>
           {page.tool === 'brutto' && <BruttoNettoRechner client:load lang={lang} methodHref={methodHref} preset={preset} />}
           {page.tool === 'netto' && <NettoBruttoRechner client:load lang={lang} methodHref={methodHref} />}
@@ -67,10 +66,11 @@ const preset = (page.toolPreset ?? {}) as Record<string, never>;
       </>
     ) : (
       <>
-        <p class="mb-6 text-navy-800">{x.resume}</p>
-        {page.mini && <MiniSim client:load kind={page.mini} lang={lang} href={miniHref} defaults={page.miniDefaults} />}
+        <Clamp text={x.resume} lang={lang} id={`clamp-${page.id}`} class="mb-3" />
+        {page.mini && <MiniSim client:load spacing="mb-4 mt-3" kind={page.mini} lang={lang} href={miniHref} defaults={page.miniDefaults} />}
       </>
     )}
+    <p class="mt-4 text-sm text-navy-600">{ui.reviewedBy} <a href={route('about', lang)} class="underline hover:text-navy-900">{AUTHOR_NAME}</a> · <a href={route('editorial', lang)} class="underline hover:text-navy-900">{ui.editorialPolicy}</a> · <a href={methodHref} class="underline hover:text-navy-900">{label('method', lang)}</a></p>
     <div class="prose prose-slate mt-8 max-w-none">
       {parts.map((p, i) => i % 2 === 0 ? <Fragment set:html={p} /> : <MiniSim client:load kind={p} lang={lang} href={miniHref} />)}
     </div>

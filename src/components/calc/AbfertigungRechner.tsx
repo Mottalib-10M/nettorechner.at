@@ -32,7 +32,7 @@ export default function AbfertigungRechner({ lang = 'de', methodHref }: { lang?:
             {system === 'neu' && <NumberField id="ab-z" label={tx(lang, 'Angenommene Verzinsung (Ihre Annahme)', 'Assumed return (your assumption)')} value={zins} onChange={setZins} unit="%" max={10} decimals={1} lang={lang} />}
           </div>
         </form>
-        <div aria-live="polite" className={kasten}>
+        <div aria-live="polite" data-resultat className={kasten}>
           {system === 'neu' ? <>
             <Kopf label={tx(lang, 'Guthaben in der BV-Kasse', 'Balance in the provision fund')} wert={$(neu.kapital)} unter={tx(lang, `ausbezahlt mit 6 %: ${$(neu.netto6)}`, `paid out at 6%: ${$(neu.netto6)}`)} />
             <Lohnzettel rows={[

@@ -36,7 +36,7 @@ export default function UeberstundenRechner({ lang = 'de', methodHref }: { lang?
           </div>
           <div className="grid grid-cols-2 gap-x-4 gap-y-4"><LandFeld lang={lang} id="ue" s={s} set={set} /></div>
         </form>
-        <div aria-live="polite" className={kasten}>
+        <div aria-live="polite" data-resultat className={kasten}>
           <Kopf label={tx(lang, 'Davon bleibt netto', 'What you keep, net')} wert={$(r.nettoMehr, 2)} unter={tx(lang, `von ${$(r.bruttoMehr, 2)} brutto · ${formatPercent(r.bruttoMehr > 0 ? r.nettoMehr / r.bruttoMehr : 0, 0, lang)}`, `from ${$(r.bruttoMehr, 2)} gross · ${formatPercent(r.bruttoMehr > 0 ? r.nettoMehr / r.bruttoMehr : 0, 0, lang)}`)} />
           <Lohnzettel rows={[
             { label: tx(lang, `Grundlohn je Stunde (÷ ${String(U.wochen_je_monat).replace('.', lang === 'de' ? ',' : '.')} Wochen)`, `Base pay per hour (÷ ${U.wochen_je_monat} weeks)`), value: $(r.stundenlohn, 2) },

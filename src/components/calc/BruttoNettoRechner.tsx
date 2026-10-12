@@ -100,7 +100,7 @@ export default function BruttoNettoRechner({ lang = 'de', methodHref, preset = {
             </div>
           </details>
         </form>
-        <div aria-live="polite" className={kasten}>
+        <div aria-live="polite" data-resultat className={kasten}>
           <Kopf label={tx(lang, 'Netto pro Monat', 'Net per month')} wert={$(m.netto)} unter={tx(lang, `Jahresnetto ${$(j.netto)} · Abzüge ${formatPercent(abz, 1, lang)} · ${LAND_NAME[s.land]}`, `Annual net ${$(j.netto)} · deductions ${formatPercent(abz, 1, lang)} · ${LAND_NAME[s.land]}`)} />
           <div className="mt-4"><StackedBar segments={segs} total={Math.max(1, j.brutto)} ariaPrefix={tx(lang, 'Aufteilung des Jahresbruttos', 'Split of annual gross')} /></div>
           <Lohnzettel rows={zeilen} />

@@ -35,7 +35,7 @@ export default function AlgRechner({ lang = 'de', methodHref }: { lang?: L; meth
           </div>
           <p className="text-sm text-navy-700">{tx(lang, 'Das AMS nimmt die letzten zwölf abgeschlossenen Beitragsmonate vor der einjährigen Berichtigungsfrist, nicht Ihr letztes Gehalt. Schwankende Bezüge: Durchschnitt eintragen.', 'AMS uses the last twelve completed contribution months before the one-year correction period, not your last salary. If pay varied, enter the average.')}</p>
         </form>
-        <div aria-live="polite" className={kasten}>
+        <div aria-live="polite" data-resultat className={kasten}>
           <Kopf label={tx(lang, 'Arbeitslosengeld pro Tag', 'Unemployment benefit per day')} wert={$(a.tagsatz, 2)} unter={tx(lang, `rund ${$(a.monat30)} im Monat (30 Tage) · ${dauer} Wochen`, `about ${$(a.monat30)} a month (30 days) · ${dauer} weeks`)} />
           <Lohnzettel rows={[
             { label: tx(lang, 'Bemessung: Brutto + 1/6 für Sonderzahlungen', 'Basis: gross + 1/6 for special payments'), value: $(a.bemessungMonat, 2) },

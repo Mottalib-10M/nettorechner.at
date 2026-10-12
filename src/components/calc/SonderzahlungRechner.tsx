@@ -110,7 +110,7 @@ export default function SonderzahlungRechner({ lang = 'de', methodHref }: { lang
             </table>
           </div>
         </form>
-        <div aria-live="polite" className={kasten}>
+        <div aria-live="polite" data-resultat className={kasten}>
           <Kopf label={tx(lang, 'Sonderzahlungen netto im Jahr', 'Special payments net for the year')} wert={$(szNetto)} unter={tx(lang, `von ${$(szBrutto)} brutto · Jahressechstel ${$(j.sechstelEnde)}`, `from ${$(szBrutto)} gross · annual sixth ${$(j.sechstelEnde)}`)} />
           <Lohnzettel rows={[
             { label: tx(lang, 'Sonderzahlungen brutto', 'Special payments gross'), value: $(szBrutto, 2) },
