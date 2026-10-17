@@ -1,7 +1,7 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
 import LegalIdentity from '../../components/LegalIdentity.astro';
-import { AUTHOR_NAME, CONTACT_EMAIL, LAST_UPDATED, SITE_NAMES, SITE_URL } from '../../data/site-config';
+import { AUTHOR_NAME, CLARITY_ID, CONTACT_EMAIL, GA4_ID, LAST_UPDATED, SITE_NAMES, SITE_URL } from '../../data/site-config';
 import { route } from '../../i18n/routes';
 const lang = 'de';
 ---
@@ -21,8 +21,9 @@ const lang = 'de';
     <p>Der Brutto-Netto-Rechner kann kostenlos per iframe auf anderen Seiten eingebunden werden, mit sichtbarem Link: siehe <a href={route('widget', lang)}>Rechner einbinden</a>.</p>
     <h2>Urheberrecht</h2>
     <p>Texte, Grafiken und Programmcode sind urheberrechtlich geschützt. Kurze Zitate mit Link auf die Ursprungsseite sind erlaubt. Gesetzestexte und amtliche Werte sind gemeinfrei und werden mit Quelle angegeben.</p>
-    <h2>Datenschutz</h2>
-    <p>Ihre Eingaben verlassen den Browser nicht. Die Website setzt keine Cookies und speichert keine personenbezogenen Daten; die Stabilität wird anonym und ohne Cookies mit Microsoft Clarity geprüft. Details in der <a href={route('privacy', lang)}>Datenschutzerklärung</a> und unter <a href={route('cookies', lang)}>Cookies</a>.</p>
-    <p class="text-sm">Stand: {LAST_UPDATED}.</p>
+    {/* gen-legal-pages:terms */}
+    <h2>Datenschutz und Cookies</h2>
+    {GA4_ID ? (<p>Ihre Eingaben in den Rechnern verlassen Ihren Browser nicht. Die Seite setzt Cookies der Reichweitenmessung von Google Analytics (<code>_ga</code>, <code>_ga_{GA4_ID.replace('G-', '')}</code>, höchstens 13 Monate), ohne Werbung{CLARITY_ID && '; die Stabilität der Seiten wird mit Microsoft Clarity ohne Cookies gemessen'}. Einzelheiten, Rechtsgrundlage und Widerspruch: <a href={route('privacy', lang)}>Datenschutzerklärung</a> und Seite <a href={route('cookies', lang)}>Cookies</a>.</p>) : (<p>Ihre Eingaben in den Rechnern verlassen Ihren Browser nicht, und die Seite setzt keine Cookies{CLARITY_ID && '; die Stabilität der Seiten wird anonym mit Microsoft Clarity ohne Cookies gemessen'}. Siehe <a href={route('privacy', lang)}>Datenschutzerklärung</a> und Seite <a href={route('cookies', lang)}>Cookies</a>.</p>)}
+    {/* /gen-legal-pages:terms */}
   </div>
 </PageLayout>
